@@ -1,5 +1,10 @@
 ---
-title: "Mulivariate Viz"
+title: "ICA Mulivariate Viz"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
 ---
 
 Use this file for practice with the **mulivariate viz** in-class activity.  Refer to the class website for details.

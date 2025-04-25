@@ -1,4 +1,11 @@
-### Barrett Edwards Solo Project ###
+---
+title: "Solo Project"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
 
 For my solo project, I wanted to visualize the shifts in Democratic voteshare across Minnesota’s eight congressional districts between the 2022 midterm elections and the 2024 general election. This project involved collecting certified election results from both cycles, calculating the change in Democratic voteshare, and displaying those shifts through a comparative visual format.
 

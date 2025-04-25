@@ -57,6 +57,9 @@ format:
 execute:
   cache: false
   freeze: auto
+  echo: true 
+  warning: false
+  error: false 
 
 editor: 
   markdown:

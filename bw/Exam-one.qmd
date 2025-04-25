@@ -1,5 +1,11 @@
-
-### Exam 1 ### (Barrett Edwards)
+---
+title: "Exam 1"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
 
 ```{r}
 #Download Food Consumption and CO2 Emissions Dataset
