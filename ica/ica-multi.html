@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.433">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>COMP/STAT112 Notebook - 11&nbsp; Mulivariate Viz</title>
+<title>COMP/STAT112 Notebook - 11&nbsp; ICA Mulivariate Viz</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/ica-uni.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-multi.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/ica-uni.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-multi.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ICA Mulivariate Viz</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -176,19 +176,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bw/Exam-one.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exam 1 ### (Barrett Edwards)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exam 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bw/Exam-two.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exam 2 ### (Barrett Edwards)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exam 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bw/SoloProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Barrett Edwards Solo Project ###</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solo Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,13 +217,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-multi.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ICA Mulivariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-spatial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercise 1: A Leaflet With Markers / Points ###</span></span></a>
   </div>
 </li>
       </ul>
@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span>
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ICA Mulivariate Viz</span>
 </h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -284,131 +284,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend)) <span class="sc">+</span> </span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Plot of SAT Scores vs. Salary</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary)) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Plot of SAT Scores vs. Salary</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary)) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Part B: The plot shows that typically, the higher per student spending and teacher salaries, the worse the SAT scores.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Create plot for SAT Scores vs. Per Student Spending Vs. Teacher Salaries </span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> expend)) <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: The following aesthetics were dropped during statistical transformation:
-colour.
-ℹ This can happen when ggplot fails to infer the correct grouping structure in
-  the data.
-ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
-  variable into a factor?</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Create plot for SAT Scores vs. Per Student Spending Vs. Teacher Salaries </span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> expend)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Exercise 4</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">2</span>))) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Exercise 4</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">2</span>))) <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">3</span>))) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">3</span>))) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#Exercise 5, Part A</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#Exercise 5, Part A</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">#Part B</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">fill =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#Part B</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">fill =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#Part c</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend, <span class="at">color =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#Part c</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend, <span class="at">color =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">#Exercise 6: Let's Make Some Heat Maps</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb19-4"><a href="#cb19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="co">#Part A</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Remove the "State" column and use it to label the rows</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># Then scale the variables</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a>plot_data <span class="ot">&lt;-</span> education <span class="sc">|&gt;</span> </span>
-<span id="cb19-9"><a href="#cb19-9"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"State"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">data.matrix</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb19-11"><a href="#cb19-11"></a>  <span class="fu">scale</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#Exercise 6: Let's Make Some Heat Maps</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">#Part A</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co"># Remove the "State" column and use it to label the rows</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># Then scale the variables</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>plot_data <span class="ot">&lt;-</span> education <span class="sc">|&gt;</span> </span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"State"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">data.matrix</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-11"><a href="#cb12-11"></a>  <span class="fu">scale</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">#Exercise 7: Create Star Plots</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="co">#Part A</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="fu">stars</span>(plot_data,</span>
-<span id="cb20-5"><a href="#cb20-5"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb20-6"><a href="#cb20-6"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="fl">1.5</span>),</span>
-<span id="cb20-7"><a href="#cb20-7"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
-<span id="cb20-8"><a href="#cb20-8"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#Exercise 7: Create Star Plots</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#Part A</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">stars</span>(plot_data,</span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="fl">1.5</span>),</span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#Part B</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">stars</span>(plot_data,</span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="at">locations =</span> <span class="fu">data.matrix</span>(<span class="fu">as.data.frame</span>(state.center)),  <span class="co"># added external data to arrange by geo location</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">110</span>, <span class="dv">28</span>),</span>
-<span id="cb21-6"><a href="#cb21-6"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
-<span id="cb21-7"><a href="#cb21-7"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">#Part B</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">stars</span>(plot_data,</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="at">locations =</span> <span class="fu">data.matrix</span>(<span class="fu">as.data.frame</span>(state.center)),  <span class="co"># added external data to arrange by geo location</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">110</span>, <span class="dv">28</span>),</span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ica-multi_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -837,121 +811,126 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../ica/ica-spatial.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercise 1: A Leaflet With Markers / Points ###</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">---</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="an">title:</span><span class="co"> "Mulivariate Viz"</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="co">---</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a></span>
-<span id="cb22-5"><a href="#cb22-5"></a>Use this file for practice with the **mulivariate viz** in-class activity.  Refer to the class website for details.</span>
-<span id="cb22-6"><a href="#cb22-6"></a></span>
-<span id="cb22-9"><a href="#cb22-9"></a><span class="in">```{r}</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="co">#Download GGPLOT</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a><span class="fu">library</span>(ggplot2) </span>
-<span id="cb22-12"><a href="#cb22-12"></a></span>
-<span id="cb22-13"><a href="#cb22-13"></a><span class="co"># Import Education Data</span></span>
-<span id="cb22-14"><a href="#cb22-14"></a>education <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/sat.csv"</span>)</span>
-<span id="cb22-15"><a href="#cb22-15"></a><span class="fu">head</span>(education)</span>
-<span id="cb22-16"><a href="#cb22-16"></a><span class="in">```</span></span>
-<span id="cb22-17"><a href="#cb22-17"></a></span>
-<span id="cb22-20"><a href="#cb22-20"></a><span class="in">```{r}</span></span>
-<span id="cb22-21"><a href="#cb22-21"></a><span class="co"># Part A: Create histogram</span></span>
-<span id="cb22-22"><a href="#cb22-22"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat)) <span class="sc">+</span> </span>
-<span id="cb22-23"><a href="#cb22-23"></a>  <span class="fu">geom_density</span>()</span>
-<span id="cb22-24"><a href="#cb22-24"></a><span class="in">```</span></span>
-<span id="cb22-25"><a href="#cb22-25"></a>Part B: The average scores are between 800 to 1100. They are bi-modal </span>
-<span id="cb22-26"><a href="#cb22-26"></a></span>
-<span id="cb22-29"><a href="#cb22-29"></a><span class="in">```{r}</span></span>
-<span id="cb22-30"><a href="#cb22-30"></a><span class="co"># SAT Scores vs Per Pupil Spending</span></span>
-<span id="cb22-31"><a href="#cb22-31"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend)) <span class="sc">+</span> </span>
-<span id="cb22-32"><a href="#cb22-32"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb22-33"><a href="#cb22-33"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb22-34"><a href="#cb22-34"></a><span class="in">```</span></span>
-<span id="cb22-35"><a href="#cb22-35"></a></span>
-<span id="cb22-38"><a href="#cb22-38"></a><span class="in">```{r}</span></span>
-<span id="cb22-39"><a href="#cb22-39"></a><span class="co"># Plot of SAT Scores vs. Salary</span></span>
-<span id="cb22-40"><a href="#cb22-40"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary)) <span class="sc">+</span> </span>
-<span id="cb22-41"><a href="#cb22-41"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb22-42"><a href="#cb22-42"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb22-43"><a href="#cb22-43"></a><span class="in">```</span></span>
-<span id="cb22-44"><a href="#cb22-44"></a></span>
-<span id="cb22-45"><a href="#cb22-45"></a>Part B: The plot shows that typically, the higher per student spending  and teacher salaries, the worse the SAT scores.</span>
-<span id="cb22-46"><a href="#cb22-46"></a></span>
-<span id="cb22-49"><a href="#cb22-49"></a><span class="in">```{r}</span></span>
-<span id="cb22-50"><a href="#cb22-50"></a><span class="co"># Create plot for SAT Scores vs. Per Student Spending Vs. Teacher Salaries </span></span>
-<span id="cb22-51"><a href="#cb22-51"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> expend)) <span class="sc">+</span> </span>
-<span id="cb22-52"><a href="#cb22-52"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb22-53"><a href="#cb22-53"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb22-54"><a href="#cb22-54"></a><span class="in">```</span></span>
-<span id="cb22-55"><a href="#cb22-55"></a></span>
-<span id="cb22-58"><a href="#cb22-58"></a><span class="in">```{r}</span></span>
-<span id="cb22-59"><a href="#cb22-59"></a><span class="co"># Exercise 4</span></span>
-<span id="cb22-60"><a href="#cb22-60"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">2</span>))) <span class="sc">+</span> </span>
-<span id="cb22-61"><a href="#cb22-61"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb22-62"><a href="#cb22-62"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb22-63"><a href="#cb22-63"></a><span class="in">```</span></span>
-<span id="cb22-64"><a href="#cb22-64"></a></span>
-<span id="cb22-67"><a href="#cb22-67"></a><span class="in">```{r}</span></span>
-<span id="cb22-68"><a href="#cb22-68"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">3</span>))) <span class="sc">+</span> </span>
-<span id="cb22-69"><a href="#cb22-69"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb22-70"><a href="#cb22-70"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb22-71"><a href="#cb22-71"></a><span class="in">```</span></span>
-<span id="cb22-72"><a href="#cb22-72"></a></span>
-<span id="cb22-75"><a href="#cb22-75"></a><span class="in">```{r}</span></span>
-<span id="cb22-76"><a href="#cb22-76"></a><span class="co">#Exercise 5, Part A</span></span>
-<span id="cb22-77"><a href="#cb22-77"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb22-78"><a href="#cb22-78"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb22-79"><a href="#cb22-79"></a><span class="in">```</span></span>
-<span id="cb22-80"><a href="#cb22-80"></a></span>
-<span id="cb22-83"><a href="#cb22-83"></a><span class="in">```{r}</span></span>
-<span id="cb22-84"><a href="#cb22-84"></a><span class="co">#Part B</span></span>
-<span id="cb22-85"><a href="#cb22-85"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">fill =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb22-86"><a href="#cb22-86"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb22-87"><a href="#cb22-87"></a><span class="in">```</span></span>
-<span id="cb22-88"><a href="#cb22-88"></a></span>
-<span id="cb22-91"><a href="#cb22-91"></a><span class="in">```{r}</span></span>
-<span id="cb22-92"><a href="#cb22-92"></a><span class="co">#Part c</span></span>
-<span id="cb22-93"><a href="#cb22-93"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend, <span class="at">color =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb22-94"><a href="#cb22-94"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb22-95"><a href="#cb22-95"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb22-96"><a href="#cb22-96"></a><span class="in">```</span></span>
-<span id="cb22-97"><a href="#cb22-97"></a></span>
-<span id="cb22-100"><a href="#cb22-100"></a><span class="in">```{r}</span></span>
-<span id="cb22-101"><a href="#cb22-101"></a><span class="co">#Exercise 6: Let's Make Some Heat Maps</span></span>
-<span id="cb22-102"><a href="#cb22-102"></a></span>
-<span id="cb22-103"><a href="#cb22-103"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb22-104"><a href="#cb22-104"></a></span>
-<span id="cb22-105"><a href="#cb22-105"></a><span class="co">#Part A</span></span>
-<span id="cb22-106"><a href="#cb22-106"></a><span class="co"># Remove the "State" column and use it to label the rows</span></span>
-<span id="cb22-107"><a href="#cb22-107"></a><span class="co"># Then scale the variables</span></span>
-<span id="cb22-108"><a href="#cb22-108"></a>plot_data <span class="ot">&lt;-</span> education <span class="sc">|&gt;</span> </span>
-<span id="cb22-109"><a href="#cb22-109"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"State"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb22-110"><a href="#cb22-110"></a>  <span class="fu">data.matrix</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb22-111"><a href="#cb22-111"></a>  <span class="fu">scale</span>()</span>
-<span id="cb22-112"><a href="#cb22-112"></a><span class="in">```</span></span>
-<span id="cb22-113"><a href="#cb22-113"></a></span>
-<span id="cb22-116"><a href="#cb22-116"></a><span class="in">```{r}</span></span>
-<span id="cb22-117"><a href="#cb22-117"></a><span class="co">#Exercise 7: Create Star Plots</span></span>
-<span id="cb22-118"><a href="#cb22-118"></a></span>
-<span id="cb22-119"><a href="#cb22-119"></a><span class="co">#Part A</span></span>
-<span id="cb22-120"><a href="#cb22-120"></a><span class="fu">stars</span>(plot_data,</span>
-<span id="cb22-121"><a href="#cb22-121"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb22-122"><a href="#cb22-122"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="fl">1.5</span>),</span>
-<span id="cb22-123"><a href="#cb22-123"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
-<span id="cb22-124"><a href="#cb22-124"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb22-125"><a href="#cb22-125"></a><span class="in">```</span></span>
-<span id="cb22-126"><a href="#cb22-126"></a></span>
-<span id="cb22-129"><a href="#cb22-129"></a><span class="in">```{r}</span></span>
-<span id="cb22-130"><a href="#cb22-130"></a><span class="co">#Part B</span></span>
-<span id="cb22-131"><a href="#cb22-131"></a><span class="fu">stars</span>(plot_data,</span>
-<span id="cb22-132"><a href="#cb22-132"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb22-133"><a href="#cb22-133"></a>  <span class="at">locations =</span> <span class="fu">data.matrix</span>(<span class="fu">as.data.frame</span>(state.center)),  <span class="co"># added external data to arrange by geo location</span></span>
-<span id="cb22-134"><a href="#cb22-134"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">110</span>, <span class="dv">28</span>),</span>
-<span id="cb22-135"><a href="#cb22-135"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
-<span id="cb22-136"><a href="#cb22-136"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb22-137"><a href="#cb22-137"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> "ICA Mulivariate Viz"</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">  echo: true </span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">  warning: false</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co">  error: false </span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co">  code-fold: true </span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="co">---</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a></span>
+<span id="cb15-10"><a href="#cb15-10"></a>Use this file for practice with the **mulivariate viz** in-class activity.  Refer to the class website for details.</span>
+<span id="cb15-11"><a href="#cb15-11"></a></span>
+<span id="cb15-14"><a href="#cb15-14"></a><span class="in">```{r}</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="co">#Download GGPLOT</span></span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="fu">library</span>(ggplot2) </span>
+<span id="cb15-17"><a href="#cb15-17"></a></span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="co"># Import Education Data</span></span>
+<span id="cb15-19"><a href="#cb15-19"></a>education <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/sat.csv"</span>)</span>
+<span id="cb15-20"><a href="#cb15-20"></a><span class="fu">head</span>(education)</span>
+<span id="cb15-21"><a href="#cb15-21"></a><span class="in">```</span></span>
+<span id="cb15-22"><a href="#cb15-22"></a></span>
+<span id="cb15-25"><a href="#cb15-25"></a><span class="in">```{r}</span></span>
+<span id="cb15-26"><a href="#cb15-26"></a><span class="co"># Part A: Create histogram</span></span>
+<span id="cb15-27"><a href="#cb15-27"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat)) <span class="sc">+</span> </span>
+<span id="cb15-28"><a href="#cb15-28"></a>  <span class="fu">geom_density</span>()</span>
+<span id="cb15-29"><a href="#cb15-29"></a><span class="in">```</span></span>
+<span id="cb15-30"><a href="#cb15-30"></a>Part B: The average scores are between 800 to 1100. They are bi-modal </span>
+<span id="cb15-31"><a href="#cb15-31"></a></span>
+<span id="cb15-34"><a href="#cb15-34"></a><span class="in">```{r}</span></span>
+<span id="cb15-35"><a href="#cb15-35"></a><span class="co"># SAT Scores vs Per Pupil Spending</span></span>
+<span id="cb15-36"><a href="#cb15-36"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend)) <span class="sc">+</span> </span>
+<span id="cb15-37"><a href="#cb15-37"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-38"><a href="#cb15-38"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb15-39"><a href="#cb15-39"></a><span class="in">```</span></span>
+<span id="cb15-40"><a href="#cb15-40"></a></span>
+<span id="cb15-43"><a href="#cb15-43"></a><span class="in">```{r}</span></span>
+<span id="cb15-44"><a href="#cb15-44"></a><span class="co"># Plot of SAT Scores vs. Salary</span></span>
+<span id="cb15-45"><a href="#cb15-45"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary)) <span class="sc">+</span> </span>
+<span id="cb15-46"><a href="#cb15-46"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-47"><a href="#cb15-47"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb15-48"><a href="#cb15-48"></a><span class="in">```</span></span>
+<span id="cb15-49"><a href="#cb15-49"></a></span>
+<span id="cb15-50"><a href="#cb15-50"></a>Part B: The plot shows that typically, the higher per student spending  and teacher salaries, the worse the SAT scores.</span>
+<span id="cb15-51"><a href="#cb15-51"></a></span>
+<span id="cb15-54"><a href="#cb15-54"></a><span class="in">```{r}</span></span>
+<span id="cb15-55"><a href="#cb15-55"></a><span class="co"># Create plot for SAT Scores vs. Per Student Spending Vs. Teacher Salaries </span></span>
+<span id="cb15-56"><a href="#cb15-56"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> expend)) <span class="sc">+</span> </span>
+<span id="cb15-57"><a href="#cb15-57"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-58"><a href="#cb15-58"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb15-59"><a href="#cb15-59"></a><span class="in">```</span></span>
+<span id="cb15-60"><a href="#cb15-60"></a></span>
+<span id="cb15-63"><a href="#cb15-63"></a><span class="in">```{r}</span></span>
+<span id="cb15-64"><a href="#cb15-64"></a><span class="co"># Exercise 4</span></span>
+<span id="cb15-65"><a href="#cb15-65"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">2</span>))) <span class="sc">+</span> </span>
+<span id="cb15-66"><a href="#cb15-66"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-67"><a href="#cb15-67"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb15-68"><a href="#cb15-68"></a><span class="in">```</span></span>
+<span id="cb15-69"><a href="#cb15-69"></a></span>
+<span id="cb15-72"><a href="#cb15-72"></a><span class="in">```{r}</span></span>
+<span id="cb15-73"><a href="#cb15-73"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">3</span>))) <span class="sc">+</span> </span>
+<span id="cb15-74"><a href="#cb15-74"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-75"><a href="#cb15-75"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb15-76"><a href="#cb15-76"></a><span class="in">```</span></span>
+<span id="cb15-77"><a href="#cb15-77"></a></span>
+<span id="cb15-80"><a href="#cb15-80"></a><span class="in">```{r}</span></span>
+<span id="cb15-81"><a href="#cb15-81"></a><span class="co">#Exercise 5, Part A</span></span>
+<span id="cb15-82"><a href="#cb15-82"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb15-83"><a href="#cb15-83"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb15-84"><a href="#cb15-84"></a><span class="in">```</span></span>
+<span id="cb15-85"><a href="#cb15-85"></a></span>
+<span id="cb15-88"><a href="#cb15-88"></a><span class="in">```{r}</span></span>
+<span id="cb15-89"><a href="#cb15-89"></a><span class="co">#Part B</span></span>
+<span id="cb15-90"><a href="#cb15-90"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">fill =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb15-91"><a href="#cb15-91"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb15-92"><a href="#cb15-92"></a><span class="in">```</span></span>
+<span id="cb15-93"><a href="#cb15-93"></a></span>
+<span id="cb15-96"><a href="#cb15-96"></a><span class="in">```{r}</span></span>
+<span id="cb15-97"><a href="#cb15-97"></a><span class="co">#Part c</span></span>
+<span id="cb15-98"><a href="#cb15-98"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> expend, <span class="at">color =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb15-99"><a href="#cb15-99"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-100"><a href="#cb15-100"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb15-101"><a href="#cb15-101"></a><span class="in">```</span></span>
+<span id="cb15-102"><a href="#cb15-102"></a></span>
+<span id="cb15-105"><a href="#cb15-105"></a><span class="in">```{r}</span></span>
+<span id="cb15-106"><a href="#cb15-106"></a><span class="co">#Exercise 6: Let's Make Some Heat Maps</span></span>
+<span id="cb15-107"><a href="#cb15-107"></a></span>
+<span id="cb15-108"><a href="#cb15-108"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb15-109"><a href="#cb15-109"></a></span>
+<span id="cb15-110"><a href="#cb15-110"></a><span class="co">#Part A</span></span>
+<span id="cb15-111"><a href="#cb15-111"></a><span class="co"># Remove the "State" column and use it to label the rows</span></span>
+<span id="cb15-112"><a href="#cb15-112"></a><span class="co"># Then scale the variables</span></span>
+<span id="cb15-113"><a href="#cb15-113"></a>plot_data <span class="ot">&lt;-</span> education <span class="sc">|&gt;</span> </span>
+<span id="cb15-114"><a href="#cb15-114"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"State"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-115"><a href="#cb15-115"></a>  <span class="fu">data.matrix</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-116"><a href="#cb15-116"></a>  <span class="fu">scale</span>()</span>
+<span id="cb15-117"><a href="#cb15-117"></a><span class="in">```</span></span>
+<span id="cb15-118"><a href="#cb15-118"></a></span>
+<span id="cb15-121"><a href="#cb15-121"></a><span class="in">```{r}</span></span>
+<span id="cb15-122"><a href="#cb15-122"></a><span class="co">#Exercise 7: Create Star Plots</span></span>
+<span id="cb15-123"><a href="#cb15-123"></a></span>
+<span id="cb15-124"><a href="#cb15-124"></a><span class="co">#Part A</span></span>
+<span id="cb15-125"><a href="#cb15-125"></a><span class="fu">stars</span>(plot_data,</span>
+<span id="cb15-126"><a href="#cb15-126"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-127"><a href="#cb15-127"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="fl">1.5</span>),</span>
+<span id="cb15-128"><a href="#cb15-128"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
+<span id="cb15-129"><a href="#cb15-129"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-130"><a href="#cb15-130"></a><span class="in">```</span></span>
+<span id="cb15-131"><a href="#cb15-131"></a></span>
+<span id="cb15-134"><a href="#cb15-134"></a><span class="in">```{r}</span></span>
+<span id="cb15-135"><a href="#cb15-135"></a><span class="co">#Part B</span></span>
+<span id="cb15-136"><a href="#cb15-136"></a><span class="fu">stars</span>(plot_data,</span>
+<span id="cb15-137"><a href="#cb15-137"></a>  <span class="at">flip.labels =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-138"><a href="#cb15-138"></a>  <span class="at">locations =</span> <span class="fu">data.matrix</span>(<span class="fu">as.data.frame</span>(state.center)),  <span class="co"># added external data to arrange by geo location</span></span>
+<span id="cb15-139"><a href="#cb15-139"></a>  <span class="at">key.loc =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">110</span>, <span class="dv">28</span>),</span>
+<span id="cb15-140"><a href="#cb15-140"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
+<span id="cb15-141"><a href="#cb15-141"></a>  <span class="at">draw.segments =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-142"><a href="#cb15-142"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
