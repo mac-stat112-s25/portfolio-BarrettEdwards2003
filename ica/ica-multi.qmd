@@ -3,3 +3,110 @@ title: "Mulivariate Viz"
 ---
 
 Use this file for practice with the **mulivariate viz** in-class activity.  Refer to the class website for details.
+
+```{r}
+#Download GGPLOT
+library(ggplot2) 
+
+# Import Education Data
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+head(education)
+```
+
+```{r}
+# Part A: Create histogram
+ggplot(education, aes(x = sat)) + 
+  geom_density()
+```
+Part B: The average scores are between 800 to 1100. They are bi-modal 
+
+```{r}
+# SAT Scores vs Per Pupil Spending
+ggplot(education, aes(y = sat, x = expend)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+```{r}
+# Plot of SAT Scores vs. Salary
+ggplot(education, aes(y = sat, x = salary)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+Part B: The plot shows that typically, the higher per student spending  and teacher salaries, the worse the SAT scores.
+
+```{r}
+# Create plot for SAT Scores vs. Per Student Spending Vs. Teacher Salaries 
+ggplot(education, aes(y = sat, x = salary, color = expend)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+```{r}
+# Exercise 4
+ggplot(education, aes(y = sat, x = salary, color = cut(expend, 2))) + 
+  geom_point() + 
+  geom_smooth(se = FALSE, method = "lm")
+```
+
+```{r}
+ggplot(education, aes(y = sat, x = salary, color = cut(expend, 3))) + 
+  geom_point() + 
+  geom_smooth(se = FALSE, method = "lm")
+```
+
+```{r}
+#Exercise 5, Part A
+ggplot(education, aes(x = fracCat)) + 
+  geom_bar()
+```
+
+```{r}
+#Part B
+ggplot(education, aes(x = sat, fill = fracCat)) + 
+  geom_density(alpha = 0.5)
+```
+
+```{r}
+#Part c
+ggplot(education, aes(y = sat, x = expend, color = fracCat)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+```{r}
+#Exercise 6: Let's Make Some Heat Maps
+
+library(tibble)
+
+#Part A
+# Remove the "State" column and use it to label the rows
+# Then scale the variables
+plot_data <- education |> 
+  column_to_rownames("State") |> 
+  data.matrix() |> 
+  scale()
+```
+
+```{r}
+#Exercise 7: Create Star Plots
+
+#Part A
+stars(plot_data,
+  flip.labels = FALSE,
+  key.loc = c(10, 1.5),
+  cex = 1, 
+  draw.segments = TRUE)
+```
+
+```{r}
+#Part B
+stars(plot_data,
+  flip.labels = FALSE,
+  locations = data.matrix(as.data.frame(state.center)),  # added external data to arrange by geo location
+  key.loc = c(-110, 28),
+  cex = 1, 
+  draw.segments = TRUE)
+```
+

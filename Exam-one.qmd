@@ -1,0 +1,7 @@
+
+```{r}
+### Exam #1 Answers ###
+# Food Consumption 1 #
+
+```
+

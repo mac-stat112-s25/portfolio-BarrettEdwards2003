@@ -1,0 +1,83 @@
+# Filter 
+
+```{r}
+library(tidyverse)
+penguins <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv')
+
+# Check it out
+head(penguins)
+```
+
+```{r}
+# Get data on only Adelie penguins that weigh more than 4700g
+penguins_heavy <- penguins |> 
+ filter(species == "Adelie", body_mass_g > 4700, !is.na(body_mass_g))
+
+# Get data on penguin body mass only
+penguin_body_mass <- penguins %>%
+  select(body_mass_g) |>
+
+# Show just the first 6 rows
+penguin_body_mass <- penguins %>%
+  select(body_mass_g) |>
+  head()
+
+# Sort the penguins from smallest to largest body mass
+penguins |> 
+  arrange(body_mass_g) |>
+  head()
+
+# Show just the first 6 rows
+penguins |> 
+  arrange(body_mass_g) |>
+  head()
+
+# Calculate the average body mass across all penguins
+# Note: na.rm = TRUE removes the NAs from the calculation
+penguins |> 
+  summarize(average = mean(body_mass_g, na.rm = TRUE))
+
+# Calculate the average body mass by species
+penguins |>
+  group_by(species) |>
+  summarize(average = mean(body_mass_g, na.rm = TRUE))
+
+
+# Create a new column that records body mass in kilograms, not grams
+# NOTE: there are 1000 g in 1 kg
+# Show just the first 6 rows
+penguins |> 
+  mutate(body_mass_kg = body_mass_g / 1000)
+  head()
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(penguins, aes(x = species, fill = species)) + 
+  geom_bar() 
+```
+
+```{r}
+
+
+```
+
+
+```{r}
+# Create a dataset with just Adelie and Chinstrap using %in%
+# Pipe this into `count(species)` to confirm that you only have these 2 species
+# ___ |> 
+#   filter(___) |> 
+#   count(species)
+```
+
+```{r}
+# Create a dataset with just Adelie and Chinstrap using !=
+# Pipe this into `count(species)` to confirm that you only have these 2 species
+# ___ |> 
+#   filter(___) |> 
+#   count(species)
+```
+
+

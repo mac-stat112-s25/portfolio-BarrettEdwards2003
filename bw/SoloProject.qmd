@@ -1,0 +1,178 @@
+### Barrett Edwards Solo Project ###
+
+For my solo project, I wanted to visualize the shifts in Democratic voteshare across Minnesota’s eight congressional districts between the 2022 midterm elections and the 2024 general election. This project involved collecting certified election results from both cycles, calculating the change in Democratic voteshare, and displaying those shifts through a comparative visual format.
+
+
+```{r}
+# Load Necessary Libraries
+library(tigris)
+library(leaflet)
+library(sf)
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(readr)
+library(stringr)
+
+# Load United States Congressional Districts
+cd118 <- congressional_districts(cb = TRUE, resolution = "20m", year = 2022)
+
+# Create Map
+leaflet(cd118) |>
+  addTiles() |>
+  addPolygons()
+```
+
+```{r}
+# Define Minnesota Congressional Districts
+mn_cd <- congressional_districts(state = "MN", cb = TRUE, resolution = "20m", year = 2022)
+
+# Create Map
+leaflet(mn_cd) |>
+  addTiles() |>
+  addPolygons(
+    label = ~paste("District", CD118FP),)
+```
+
+```{r}
+#Import 2022 Minnesota Congressional Results 
+data_2022 <- read_delim("../data/Election_Results_2022", col_names = FALSE)
+
+# Clean and filter data
+Minnesota_Congressional_Results_2022 <- data_2022 |>
+  select(X6, X11, X15) |>
+  rename(District = X6,
+         Party = X11,
+         Voteshare = X15) |>
+  filter(Party %in% c("DFL", "R"))  # Filter for DFL and R parties
+
+Minnesota_Congressional_Results_2022
+```
+
+```{r}
+#Import 2024 Minnesota Congressional Results 
+data_2024 <- read_delim("../data/Election_Results_2024", col_names = FALSE)
+
+Minnesota_Congressional_Results_2024 <- data_2024 |>
+  select(X6, X11, X15) |>
+  rename(District = X6,
+         Party = X11,
+         Voteshare = X15)  |>
+  filter(Party %in% c("DFL", "R"))  # Keep only DFL and R parties 
+
+Minnesota_Congressional_Results_2024
+```
+
+```{r}
+#Combine 2022 and 2024 Data
+Minnesota_Congressional_Results_2022 <- Minnesota_Congressional_Results_2022 |>
+  mutate(Year = 2022)
+
+Minnesota_Congressional_Results_2024 <- Minnesota_Congressional_Results_2024 |>
+  mutate(Year = 2024)
+
+Combined_Minnesota_Congressional_Results <- bind_rows(
+  Minnesota_Congressional_Results_2022,
+  Minnesota_Congressional_Results_2024)
+
+# Fix District Variable (To Match Geographic Data)
+Combined_Minnesota_Congressional_Results$District <- sprintf("%02d", Combined_Minnesota_Congressional_Results$District)
+
+Combined_Minnesota_Congressional_Results
+```
+
+
+```{r}
+# Create the 'year_party' column for pivoting
+Combined_Minnesota_Congressional_Results <- Combined_Minnesota_Congressional_Results |>
+  mutate(year_party = paste0(tolower(Party), "_", Year))
+
+# Pivot The Data
+voteshare_data <- Combined_Minnesota_Congressional_Results |>
+  pivot_wider(id_cols = District,
+              names_from = year_party,
+              values_from = `Voteshare`)
+
+# View Data 
+voteshare_data
+```
+
+```{r}
+mn_cd_with_results <- left_join(mn_cd, voteshare_data, by = c("CD118FP" = "District"))
+
+# View Merged Data
+mn_cd_with_results
+```
+
+```{r}
+# Create Color Palette for 2022 
+pal_2022 <- colorNumeric(palette = c("red", "blue"), domain = mn_cd_with_results$democratic_2022)
+
+# Map for 2022 Election Results
+leaflet(mn_cd_with_results) |> 
+  addTiles() |> 
+  addPolygons(
+    fillColor = ~pal_2022(dfl_2022),  # Function needs to be called on the variable
+    fillOpacity = 1,
+    color = "black",
+    weight = 1) |> 
+  addLegend(
+    pal = pal_2022,
+    values = ~dfl_2022,
+    title = "Democratic Voteshare (2022)",
+    position = "bottomright")
+```
+
+```{r}
+# Create Color Palette for 2024
+pal_2024 <- colorNumeric(palette = c("red", "blue"), domain = mn_cd_with_results$democratic_2022)
+
+# Map for 2024 Election Results
+leaflet(mn_cd_with_results) |> 
+  addTiles() |> 
+  addPolygons(
+    fillColor = ~pal_2024(dfl_2024),
+    fillOpacity = 1,
+    color = "black",
+    weight = 1) |> 
+  addLegend(
+    pal = pal_2024,
+    values = ~dfl_2024,
+    title = "Democratic Voteshare (2024)",
+    position = "bottomright")
+```
+
+```{r}
+# Calculate the Change in Voteshare (Between 2022 and 2024)
+mn_cd_with_results_1 <- mn_cd_with_results |>
+  mutate(
+    democratic_change = dfl_2024 - dfl_2022,
+    republican_change = r_2024 - r_2022)
+
+mn_cd_with_results_1
+```
+
+```{r}
+# Map for Democratic Voteshare change
+plot_dem_change <- ggplot(mn_cd_with_results_1) +
+  geom_sf(aes(fill = democratic_change), color = "black") +
+  scale_fill_gradient2(
+    low = "red",
+    mid = "white",
+    high = "blue",
+    midpoint = 0,
+    name = "Dem. Change\n(2022 - 2024)") +
+  labs(
+    title = "Change in Democratic Voteshare (2022 to 2024)",
+    caption = "Soure: Minnesota Secretary of States Office") +
+  theme_minimal()
+
+plot_dem_change
+```
+
+# Reflection: 
+
+The map offers several insightful observations about the shifts in Democratic voteshare between the 2022 midterm elections and the 2024 elections. Notably, Minnesota's 2nd Congressional District experienced a significant shift in favor of Democratic candidate Angie Craig. This district has long been considered a swing district, but in 2024, Craig secured a commanding victory, greatly surpassing her 2022 performance and outperforming other Democrats in the state. Additionally, while Minnesota's 7th District remains a heavily Republican area, it did shift slightly to the left. Most other districts showed moderate shifts to the right, consistent with national trends. Interestingly, Minnesota's 5th District, the most Democratic in the state, showed no change between the two election cycles.
+
+These shifts provide valuable insights into where Democratic candidates gained or lost support in 2024 and open the door to several important research questions. What campaign strategies, narratives, or tactics did certain candidates employ that may have contributed to their increased support? What role did money play in the outcome? These are all compelling questions that warrant further exploration by political scientists and data scientists alike.
+

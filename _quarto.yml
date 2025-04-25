@@ -4,16 +4,15 @@ project:
 
 book:
   title: "COMP/STAT112 Notebook"
-  author: "Your Name Here"
+  author: "Barrett Edwards"
   date: today
   reader-mode: true
   page-navigation: true
   back-to-top-navigation: true
-  bread-crumbs: true
-  
+
   
   sidebar:
-    title: "Your Name Here"
+    title: "Barrett Edwards"
     collapse-level: 2
     style: "docked"
     pinned: true
@@ -30,6 +29,9 @@ book:
       - bw/bw-tri.qmd
       - bw/bw-quad.qmd
       - bw/bw-spatial.qmd
+      - bw/Exam-one.qmd
+      - bw/Exam-two.qmd 
+      - bw/SoloProject.qmd
 
     - part: "In-class Activities"
       chapters: 

@@ -1,0 +1,45 @@
+# Reshaping In-Class Activities 
+
+```{r}
+library(tidyverse)
+penguins <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv')
+```
+
+```{r}
+# Using count()
+penguins |> 
+  count(species, sex)
+
+# Using group_by() and summarize()
+penguins |> 
+  group_by(species, sex) |>
+  summarize (n())
+
+#Relative frequencies 
+penguins |> 
+  group_by(species, sex) |> 
+  summarize(n=n()) |>
+  mutate(proportion = n / sum(n))
+
+```
+```{r}
+penguin_avg <- penguins |> 
+  group_by(species, sex) |> 
+  summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE)) |> 
+  na.omit()
+
+```
+
+```{r}
+# Units of observation = ???
+head(penguins)
+
+```
+
+```{r}
+# Units of observation = ???
+head(penguin_avg)
+
+```
+
+

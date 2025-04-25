@@ -3,3 +3,49 @@ title: "Quadvariate Viz"
 ---
 
 Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+
+```{r}
+# Load Necessary Libraries
+library(tidyverse)
+library(fivethirtyeight)
+library(ggplot2)
+
+# Create `new_bechdel` Dataset
+new_bechdel <- bechdel |>
+  mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
+  mutate(half_decades = cut(year, breaks = seq(1969, 2014, by = 5)))
+```
+
+```{r}
+# Create Quadvariate Vizualization 
+
+ggplot(new_bechdel, aes(x = budget, y = domgross, color = binary)) +
+  geom_point(alpha = 0.7, size = 0.5) +
+  geom_smooth(method = "lm") + 
+  facet_wrap(~ clean_test,  labeller = labeller(clean_test = c("nowomen" = "No Women",
+                                                "notalk" = "No Talk",
+                                                "men" = "Men Only",
+                                                "dubious" = "Dubious",
+                                                "ok" = "Passes")),
+             ncol = 3, # Specify the number of columns for the facets
+             scales = "free_x") + # Allow x-axis scales to vary if needed +
+  labs(
+    title = "Bechdel Test Results by Reason for Failure",
+    x = "Budget (in USD)",
+    y = "Domestic Gross (in USD)",
+    color = "Bechdel Test Result") +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16),
+    axis.title.x = element_text(face = "bold", size = 12),
+    axis.title.y = element_text(face = "bold", size = 12),
+    legend.title = element_text(face = "bold", size = 12),
+    strip.text = element_text(face = "bold", size = 11),
+    panel.spacing.x = unit(1, "cm"), # Adjust horizontal spacing between facets
+    panel.spacing.y = unit(1, "cm"), # Adjust vertical spacing between facets
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10), # Angle x-axis text
+    axis.text.y = element_text(size = 10),
+    plot.margin = margin(1, 1, 1, 1, "cm") # Add overall plot margins
+  )
+```

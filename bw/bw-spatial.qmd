@@ -3,3 +3,93 @@ title: "Spatial Viz"
 ---
 
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+### Spacial Vizualization: Exercise #10 ###
+Construct county-level maps of median_rent and median_age.
+
+```{r}
+#Load Libraries 
+# Load necessary libraries
+library(leaflet)
+library(sf)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+# Download Datasets
+elections_by_state <-  read.csv("https://mac-stat.github.io/data/election_2020_by_state.csv")
+elections_by_counties <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+```
+
+```{r}
+# Wrangle the Data
+elections_by_state <- elections_by_state |> 
+  filter(state_abbr != "DC") |> 
+  select(state_name, state_abbr, repub_pct_20) |> 
+  mutate(repub_20_categories = 
+           cut(repub_pct_20, 
+               breaks = seq(30, 70, by = 5), 
+               labels = c("30-34", "35-39", "40-44", "45-49",
+                          "50-54", "55-59", "60-64", "65-70"), 
+               include.lowest = TRUE))
+
+elections_by_counties <- elections_by_counties |> 
+  select(state_name, state_abbr, county_name, county_fips,
+          repub_pct_20, median_age, median_rent) |> 
+  mutate(repub_20_categories = 
+           cut(repub_pct_20, 
+               breaks = seq(0, 100, by = 10),
+               labels = c("0-9", "10-19", "20-29", "30-39", "40-49",
+                          "50-59", "60-69", "70-79", "80-89", "90-100"),
+               include.lowest = TRUE))
+```
+
+```{r}
+# Get Latitude and Longitude Coordinates of States
+states_map <- map_data("state")
+
+# Check It Out
+head(states_map)
+```
+
+```{r}
+# Get the latitude and longitude coordinates of county boundaries
+library(socviz)
+data(county_map) 
+
+# Check it out
+head(county_map)
+```
+
+```{r}
+# Add 0's at the beginning of any fips_code that's fewer than 5 numbers long
+# Don't worry about the syntax
+elections_by_counties <- elections_by_counties |> 
+  mutate(county_fips = as.character(county_fips)) |> 
+  mutate(county_fips = 
+           ifelse(nchar(county_fips) == 4, paste0("0", county_fips), county_fips))
+```
+
+```{r}
+# Create A County-Level Map of median_rent 
+library(ggplot2)
+library(viridis) # For better color palettes
+
+ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
+    geom_map(map = county_map) +
+    expand_limits(x = county_map$long, y = county_map$lat) +
+    coord_equal() +
+    scale_fill_viridis_c(name = "Median Monthly Rent ($)", option = "magma") + # Using a viridis palette
+    theme_void() + # Cleaner background
+    theme(legend.position = "right",
+          plot.title = element_text(hjust = 0.5, size = 16, face = "bold"), # Centered, larger title
+          plot.subtitle = element_text(hjust = 0.5, size = 12), # Centered subtitle
+          plot.caption = element_text(hjust = 0, size = 10, color = "black")) + # Left-aligned caption
+    labs(title = "Median Rent by County in the United States",
+         subtitle = "Estimated for 2020")
+```
+
+The "Median Rent by County in the United States' visualization helps us understand the spatial patterns of median monthly rent across the United States at the county level in 2020. It highlights regional disparities and the influence of living in a coastal and/or metropolitan areas on housing costs. The lightest areas on the map, representing the highest median monthly rents, are predominantly concentrated along the coasts. Additionally, major inland metropolitan areas, such as Chicago, Denver, and Dallas, also exhibit higher median rents compared to their surrounding areas.
+
+Note On Missing Data: It's important to note that there are some counties that appear black on the map, indicating missing data for the median rent in those specific counties for the year 2020. 
