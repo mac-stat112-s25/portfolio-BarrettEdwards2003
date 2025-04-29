@@ -278,16 +278,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3"></a></span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="co"># Create Density Plot</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">fill =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span> <span class="co">#Adjust Transparency </span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span>                                                <span class="co"># Adjust Transparency </span></span>
 <span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">labs</span>(</span>
 <span id="cb3-8"><a href="#cb3-8"></a>    <span class="at">title =</span> <span class="st">"SAT Score Distributions by Student Participation Rate"</span>,</span>
 <span id="cb3-9"><a href="#cb3-9"></a>    <span class="at">x =</span> <span class="st">"SAT Total Score"</span>,</span>
 <span id="cb3-10"><a href="#cb3-10"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11"></a>    <span class="at">fill =</span> <span class="st">"SAT Participation Rate (%)"</span>) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="co"># Cleaner theme</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-14"><a href="#cb3-14"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="co"># Make Title Bold and Centered</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>) <span class="co">#Position the Legend on the right </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="at">caption =</span> <span class="st">"Source: College Board (compiled by Danny Kaplan, 2021)"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="at">fill =</span> <span class="st">"SAT Participation Rate (%)"</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                                           <span class="co"># Cleaner theme</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),         <span class="co"># Make Title Bold and Centered</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),                      <span class="co"># Adjust size of caption</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>),                        <span class="co"># Adjust grid lines</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>)                                                <span class="co"># Position the Legend on the right</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="bw-tri_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -305,17 +308,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Create A Scatter Plot with Linear Regression Lines</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> expend, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co">#Adjust Transparency and Point Size</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># Keep regression lines with confidence intervals</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>                                         <span class="co">#Adjust Transparency and Point Size</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span>                      <span class="co"># Keep regression lines with confidence intervals</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">labs</span>(</span>
 <span id="cb4-7"><a href="#cb4-7"></a>    <span class="at">title =</span> <span class="st">"Expenditure Per Student and SAT Scores by Participation Rate"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">x =</span> <span class="st">"Expenditure per Student"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">x =</span> <span class="st">"Expenditure Per Student"</span>,</span>
 <span id="cb4-9"><a href="#cb4-9"></a>    <span class="at">y =</span> <span class="st">"SAT Total Score"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10"></a>    <span class="at">color =</span> <span class="st">"SAT Participation Rate"</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">theme</span>(</span>
-<span id="cb4-13"><a href="#cb4-13"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="co"># Make Title Bold and Centered</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="co"># Move the legend to the bottom</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="at">caption =</span> <span class="st">"Source: College Board (compiled by Danny Kaplan, 2021)"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="at">color =</span> <span class="st">"SAT Participation Rate"</span>) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),         <span class="co"># Make Title Bold and Centered</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),                      <span class="co"># Adjust size of caption</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>),                        <span class="co"># Adjust grid lines</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>)                                                <span class="co"># Position the Legend on the right</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="bw-tri_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -776,51 +782,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-28"><a href="#cb5-28"></a></span>
 <span id="cb5-29"><a href="#cb5-29"></a><span class="co"># Create Density Plot</span></span>
 <span id="cb5-30"><a href="#cb5-30"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">fill =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb5-31"><a href="#cb5-31"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span> <span class="co">#Adjust Transparency </span></span>
+<span id="cb5-31"><a href="#cb5-31"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span>                                                <span class="co"># Adjust Transparency </span></span>
 <span id="cb5-32"><a href="#cb5-32"></a>  <span class="fu">labs</span>(</span>
 <span id="cb5-33"><a href="#cb5-33"></a>    <span class="at">title =</span> <span class="st">"SAT Score Distributions by Student Participation Rate"</span>,</span>
 <span id="cb5-34"><a href="#cb5-34"></a>    <span class="at">x =</span> <span class="st">"SAT Total Score"</span>,</span>
 <span id="cb5-35"><a href="#cb5-35"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb5-36"><a href="#cb5-36"></a>    <span class="at">fill =</span> <span class="st">"SAT Participation Rate (%)"</span>) <span class="sc">+</span></span>
-<span id="cb5-37"><a href="#cb5-37"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="co"># Cleaner theme</span></span>
-<span id="cb5-38"><a href="#cb5-38"></a>  <span class="fu">theme</span>(</span>
-<span id="cb5-39"><a href="#cb5-39"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="co"># Make Title Bold and Centered</span></span>
-<span id="cb5-40"><a href="#cb5-40"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>) <span class="co">#Position the Legend on the right </span></span>
-<span id="cb5-41"><a href="#cb5-41"></a><span class="in">```</span></span>
-<span id="cb5-42"><a href="#cb5-42"></a></span>
-<span id="cb5-43"><a href="#cb5-43"></a><span class="fu"># Reflection </span></span>
-<span id="cb5-44"><a href="#cb5-44"></a>This visualization demonstrates the relationship between three variables related to education and SAT scores across different states.</span>
+<span id="cb5-36"><a href="#cb5-36"></a>    <span class="at">caption =</span> <span class="st">"Source: College Board (compiled by Danny Kaplan, 2021)"</span>,</span>
+<span id="cb5-37"><a href="#cb5-37"></a>    <span class="at">fill =</span> <span class="st">"SAT Participation Rate (%)"</span>) <span class="sc">+</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                                           <span class="co"># Cleaner theme</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-40"><a href="#cb5-40"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),         <span class="co"># Make Title Bold and Centered</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),                      <span class="co"># Adjust size of caption</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>),                        <span class="co"># Adjust grid lines</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>)                                                <span class="co"># Position the Legend on the right</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="in">```</span></span>
 <span id="cb5-45"><a href="#cb5-45"></a></span>
-<span id="cb5-46"><a href="#cb5-46"></a><span class="ss">1. </span>The x-axis represents student's combined score of the verbal and math sections of the SAT. Higher values indicate better overall performance on the SAT.</span>
-<span id="cb5-47"><a href="#cb5-47"></a></span>
-<span id="cb5-48"><a href="#cb5-48"></a><span class="ss">2. </span>The y-axis shows shows the probability density of the SAT scores within each category of fracCat. In other words, the height of the curves at any given SAT score shows how concentrated the scores are for states within that fracCat group.</span>
-<span id="cb5-49"><a href="#cb5-49"></a></span>
-<span id="cb5-50"><a href="#cb5-50"></a><span class="ss">3. </span>The Color/Fill displays the fracCat (Proportion of Students Taking the SAT). This is the third variable, categorized into three groups: States where a very small proportion (0 to 15%) took the SAT; States where a moderate proportion (between 15% and 45%) took the SAT; and States where a high proportion (greater than 45% up to 100%) took the SAT.</span>
-<span id="cb5-51"><a href="#cb5-51"></a></span>
-<span id="cb5-52"><a href="#cb5-52"></a>The most striking takeaway is the clear inverse relationship between the fraction of students taking the SAT and the overall distribution of SAT scores in a state. In states with low participation, the average scores tend to be inflated.</span>
-<span id="cb5-53"><a href="#cb5-53"></a>Conversely, in states with much higher participation, the average scores tend to be lower. </span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="fu"># Reflection </span></span>
+<span id="cb5-47"><a href="#cb5-47"></a>This visualization demonstrates the relationship between three variables related to education and SAT scores across different states.</span>
+<span id="cb5-48"><a href="#cb5-48"></a></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="ss">1. </span>The x-axis represents student's combined score of the verbal and math sections of the SAT. Higher values indicate better overall performance on the SAT.</span>
+<span id="cb5-50"><a href="#cb5-50"></a></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="ss">2. </span>The y-axis shows shows the probability density of the SAT scores within each category of fracCat. In other words, the height of the curves at any given SAT score shows how concentrated the scores are for states within that fracCat group.</span>
+<span id="cb5-52"><a href="#cb5-52"></a></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="ss">3. </span>The Color/Fill displays the fracCat (Proportion of Students Taking the SAT). This is the third variable, categorized into three groups: States where a very small proportion (0 to 15%) took the SAT; States where a moderate proportion (between 15% and 45%) took the SAT; and States where a high proportion (greater than 45% up to 100%) took the SAT.</span>
 <span id="cb5-54"><a href="#cb5-54"></a></span>
-<span id="cb5-57"><a href="#cb5-57"></a><span class="in">```{r}</span></span>
-<span id="cb5-58"><a href="#cb5-58"></a><span class="co"># Create A Scatter Plot with Linear Regression Lines</span></span>
-<span id="cb5-59"><a href="#cb5-59"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-60"><a href="#cb5-60"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> expend, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
-<span id="cb5-61"><a href="#cb5-61"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co">#Adjust Transparency and Point Size</span></span>
-<span id="cb5-62"><a href="#cb5-62"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># Keep regression lines with confidence intervals</span></span>
-<span id="cb5-63"><a href="#cb5-63"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-64"><a href="#cb5-64"></a>    <span class="at">title =</span> <span class="st">"Expenditure Per Student and SAT Scores by Participation Rate"</span>,</span>
-<span id="cb5-65"><a href="#cb5-65"></a>    <span class="at">x =</span> <span class="st">"Expenditure per Student"</span>,</span>
-<span id="cb5-66"><a href="#cb5-66"></a>    <span class="at">y =</span> <span class="st">"SAT Total Score"</span>,</span>
-<span id="cb5-67"><a href="#cb5-67"></a>    <span class="at">color =</span> <span class="st">"SAT Participation Rate"</span>) <span class="sc">+</span></span>
-<span id="cb5-68"><a href="#cb5-68"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb5-69"><a href="#cb5-69"></a>  <span class="fu">theme</span>(</span>
-<span id="cb5-70"><a href="#cb5-70"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="co"># Make Title Bold and Centered</span></span>
-<span id="cb5-71"><a href="#cb5-71"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="co"># Move the legend to the bottom</span></span>
-<span id="cb5-72"><a href="#cb5-72"></a><span class="in">```</span></span>
-<span id="cb5-73"><a href="#cb5-73"></a></span>
-<span id="cb5-74"><a href="#cb5-74"></a><span class="fu"># Reflection </span></span>
-<span id="cb5-75"><a href="#cb5-75"></a></span>
-<span id="cb5-76"><a href="#cb5-76"></a>This Scatter Plot displays the relationship between two numerical variables, Expenditure Per Student (on the x-axis) and SAT Total Score (on the y-axis). The third variable, SAT Participation Rate, is introduced through the color of the data points and the separate linear regression lines.This trivariate visualization demonstrates that the proportion of students taking the SAT seems to be a stronger predictor of average SAT scores than expenditure per student. States with lower SAT participation rates tend to have higher average scores, regardless of their spending per student. Conversely, states with high participation rates tend to have lower average scores.</span>
-<span id="cb5-77"><a href="#cb5-77"></a></span>
+<span id="cb5-55"><a href="#cb5-55"></a>The most striking takeaway is the clear inverse relationship between the fraction of students taking the SAT and the overall distribution of SAT scores in a state. In states with low participation, the average scores tend to be inflated.</span>
+<span id="cb5-56"><a href="#cb5-56"></a>Conversely, in states with much higher participation, the average scores tend to be lower. </span>
+<span id="cb5-57"><a href="#cb5-57"></a></span>
+<span id="cb5-60"><a href="#cb5-60"></a><span class="in">```{r}</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="co"># Create A Scatter Plot with Linear Regression Lines</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> expend, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
+<span id="cb5-64"><a href="#cb5-64"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>                                         <span class="co">#Adjust Transparency and Point Size</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span>                      <span class="co"># Keep regression lines with confidence intervals</span></span>
+<span id="cb5-66"><a href="#cb5-66"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-67"><a href="#cb5-67"></a>    <span class="at">title =</span> <span class="st">"Expenditure Per Student and SAT Scores by Participation Rate"</span>,</span>
+<span id="cb5-68"><a href="#cb5-68"></a>    <span class="at">x =</span> <span class="st">"Expenditure Per Student"</span>,</span>
+<span id="cb5-69"><a href="#cb5-69"></a>    <span class="at">y =</span> <span class="st">"SAT Total Score"</span>,</span>
+<span id="cb5-70"><a href="#cb5-70"></a>    <span class="at">caption =</span> <span class="st">"Source: College Board (compiled by Danny Kaplan, 2021)"</span>,</span>
+<span id="cb5-71"><a href="#cb5-71"></a>    <span class="at">color =</span> <span class="st">"SAT Participation Rate"</span>) <span class="sc">+</span></span>
+<span id="cb5-72"><a href="#cb5-72"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-74"><a href="#cb5-74"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),         <span class="co"># Make Title Bold and Centered</span></span>
+<span id="cb5-75"><a href="#cb5-75"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),                      <span class="co"># Adjust size of caption</span></span>
+<span id="cb5-76"><a href="#cb5-76"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>),                        <span class="co"># Adjust grid lines</span></span>
+<span id="cb5-77"><a href="#cb5-77"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>)                                                <span class="co"># Position the Legend on the right</span></span>
+<span id="cb5-78"><a href="#cb5-78"></a><span class="in">```</span></span>
+<span id="cb5-79"><a href="#cb5-79"></a></span>
+<span id="cb5-80"><a href="#cb5-80"></a><span class="fu"># Reflection </span></span>
+<span id="cb5-81"><a href="#cb5-81"></a></span>
+<span id="cb5-82"><a href="#cb5-82"></a>This Scatter Plot displays the relationship between two numerical variables, Expenditure Per Student (on the x-axis) and SAT Total Score (on the y-axis). The third variable, SAT Participation Rate, is introduced through the color of the data points and the separate linear regression lines.This trivariate visualization demonstrates that the proportion of students taking the SAT seems to be a stronger predictor of average SAT scores than expenditure per student. States with lower SAT participation rates tend to have higher average scores, regardless of their spending per student. Conversely, states with high participation rates tend to have lower average scores.</span>
+<span id="cb5-83"><a href="#cb5-83"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

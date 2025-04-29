@@ -278,24 +278,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10"></a>                                                <span class="st">"ok"</span> <span class="ot">=</span> <span class="st">"Passes"</span>)),</span>
 <span id="cb2-11"><a href="#cb2-11"></a>             <span class="at">ncol =</span> <span class="dv">3</span>, <span class="co"># Specify the number of columns for the facets</span></span>
 <span id="cb2-12"><a href="#cb2-12"></a>             <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> <span class="co"># Allow x-axis scales to vary if needed +</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-13"><a href="#cb2-13"></a>   <span class="fu">labs</span>(</span>
 <span id="cb2-14"><a href="#cb2-14"></a>    <span class="at">title =</span> <span class="st">"Bechdel Test Results by Reason for Failure"</span>,</span>
 <span id="cb2-15"><a href="#cb2-15"></a>    <span class="at">x =</span> <span class="st">"Budget (in USD)"</span>,</span>
 <span id="cb2-16"><a href="#cb2-16"></a>    <span class="at">y =</span> <span class="st">"Domestic Gross (in USD)"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17"></a>    <span class="at">color =</span> <span class="st">"Bechdel Test Result"</span>) <span class="sc">+</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb2-19"><a href="#cb2-19"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-20"><a href="#cb2-20"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb2-21"><a href="#cb2-21"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb2-22"><a href="#cb2-22"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb2-23"><a href="#cb2-23"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb2-24"><a href="#cb2-24"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">11</span>),</span>
-<span id="cb2-25"><a href="#cb2-25"></a>    <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>), <span class="co"># Adjust horizontal spacing between facets</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a>    <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>), <span class="co"># Adjust vertical spacing between facets</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>), <span class="co"># Angle x-axis text</span></span>
-<span id="cb2-28"><a href="#cb2-28"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb2-29"><a href="#cb2-29"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="st">"cm"</span>) <span class="co"># Add overall plot margins</span></span>
-<span id="cb2-30"><a href="#cb2-30"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="at">caption =</span> <span class="st">"Source: Walt Hickey, 'The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women,' FiveThirtyEight, 2014"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="at">color =</span> <span class="st">"Bechdel Test Result"</span>) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb2-20"><a href="#cb2-20"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">11</span>),</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb2-27"><a href="#cb2-27"></a>    <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>),</span>
+<span id="cb2-28"><a href="#cb2-28"></a>    <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>), </span>
+<span id="cb2-29"><a href="#cb2-29"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb2-30"><a href="#cb2-30"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb2-31"><a href="#cb2-31"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="st">"cm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="bw-quad_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -768,25 +769,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-42"><a href="#cb3-42"></a>                                                <span class="st">"ok"</span> <span class="ot">=</span> <span class="st">"Passes"</span>)),</span>
 <span id="cb3-43"><a href="#cb3-43"></a>             <span class="at">ncol =</span> <span class="dv">3</span>, <span class="co"># Specify the number of columns for the facets</span></span>
 <span id="cb3-44"><a href="#cb3-44"></a>             <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> <span class="co"># Allow x-axis scales to vary if needed +</span></span>
-<span id="cb3-45"><a href="#cb3-45"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-45"><a href="#cb3-45"></a>   <span class="fu">labs</span>(</span>
 <span id="cb3-46"><a href="#cb3-46"></a>    <span class="at">title =</span> <span class="st">"Bechdel Test Results by Reason for Failure"</span>,</span>
 <span id="cb3-47"><a href="#cb3-47"></a>    <span class="at">x =</span> <span class="st">"Budget (in USD)"</span>,</span>
 <span id="cb3-48"><a href="#cb3-48"></a>    <span class="at">y =</span> <span class="st">"Domestic Gross (in USD)"</span>,</span>
-<span id="cb3-49"><a href="#cb3-49"></a>    <span class="at">color =</span> <span class="st">"Bechdel Test Result"</span>) <span class="sc">+</span></span>
-<span id="cb3-50"><a href="#cb3-50"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb3-51"><a href="#cb3-51"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-52"><a href="#cb3-52"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb3-53"><a href="#cb3-53"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb3-54"><a href="#cb3-54"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb3-55"><a href="#cb3-55"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb3-56"><a href="#cb3-56"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">11</span>),</span>
-<span id="cb3-57"><a href="#cb3-57"></a>    <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>), <span class="co"># Adjust horizontal spacing between facets</span></span>
-<span id="cb3-58"><a href="#cb3-58"></a>    <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>), <span class="co"># Adjust vertical spacing between facets</span></span>
-<span id="cb3-59"><a href="#cb3-59"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>), <span class="co"># Angle x-axis text</span></span>
-<span id="cb3-60"><a href="#cb3-60"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb3-61"><a href="#cb3-61"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="st">"cm"</span>) <span class="co"># Add overall plot margins</span></span>
-<span id="cb3-62"><a href="#cb3-62"></a>  )</span>
-<span id="cb3-63"><a href="#cb3-63"></a><span class="in">```</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a>    <span class="at">caption =</span> <span class="st">"Source: Walt Hickey, 'The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women,' FiveThirtyEight, 2014"</span>,</span>
+<span id="cb3-50"><a href="#cb3-50"></a>    <span class="at">color =</span> <span class="st">"Bechdel Test Result"</span>) <span class="sc">+</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb3-52"><a href="#cb3-52"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-53"><a href="#cb3-53"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb3-54"><a href="#cb3-54"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb3-55"><a href="#cb3-55"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb3-56"><a href="#cb3-56"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb3-57"><a href="#cb3-57"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">11</span>),</span>
+<span id="cb3-58"><a href="#cb3-58"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb3-59"><a href="#cb3-59"></a>    <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>),</span>
+<span id="cb3-60"><a href="#cb3-60"></a>    <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>), </span>
+<span id="cb3-61"><a href="#cb3-61"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb3-62"><a href="#cb3-62"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb3-63"><a href="#cb3-63"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="st">"cm"</span>))</span>
+<span id="cb3-64"><a href="#cb3-64"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
