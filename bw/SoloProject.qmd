@@ -4,7 +4,10 @@ execute:
   echo: true 
   warning: false
   error: false 
-  code-fold: true 
+  
+format: 
+  html:
+   code-fold: true 
 ---
 
 For my solo project, I wanted to visualize the shifts in Democratic voteshare across Minnesota’s eight congressional districts between the 2022 midterm elections and the 2024 general election. This project involved collecting certified election results from both cycles, calculating the change in Democratic voteshare, and displaying those shifts through a comparative visual format.
@@ -171,8 +174,10 @@ plot_dem_change <- ggplot(mn_cd_with_results_1) +
     name = "Dem. Change\n(2022 - 2024)") +
   labs(
     title = "Change in Democratic Voteshare (2022 to 2024)",
-    caption = "Soure: Minnesota Secretary of States Office") +
-  theme_minimal()
+    caption = "Source: Minnesota Secretary of States Office (2023 and 2025)") +
+  theme_minimal() + 
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank())
 
 plot_dem_change
 ```

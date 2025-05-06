@@ -4,7 +4,10 @@ execute:
   echo: true 
   warning: false
   error: false 
-  code-fold: true 
+  
+format: 
+  html:
+   code-fold: true 
 ---
 
 Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
@@ -21,16 +24,19 @@ library(ggplot2)
 
 # Create Density Plot
 ggplot(education, aes(x = sat, fill = fracCat)) + 
-  geom_density(alpha = 0.6) + #Adjust Transparency 
+  geom_density(alpha = 0.6) +                                                # Adjust Transparency 
   labs(
     title = "SAT Score Distributions by Student Participation Rate",
     x = "SAT Total Score",
     y = "Density",
+    caption = "Source: College Board (compiled by Danny Kaplan, 2021)",
     fill = "SAT Participation Rate (%)") +
-  theme_minimal() + # Cleaner theme
+  theme_minimal() +                                                           # Cleaner theme
   theme(
-    plot.title = element_text(face = "bold", size = 15, hjust = 0.5), # Make Title Bold and Centered
-    legend.position = "right") #Position the Legend on the right 
+    plot.title = element_text(face = "bold", size = 15, hjust = 0.5),         # Make Title Bold and Centered
+    plot.caption = element_text(size = 10, hjust = 0.5),                      # Adjust size of caption
+    panel.grid.major = element_line(color = "gray80"),                        # Adjust grid lines
+    legend.position = "right")                                                # Position the Legend on the right
 ```
 
 # Reflection 
@@ -49,17 +55,20 @@ Conversely, in states with much higher participation, the average scores tend to
 # Create A Scatter Plot with Linear Regression Lines
 library(ggplot2)
 ggplot(education, aes(x = expend, y = sat, color = fracCat)) +
-  geom_point(alpha = 0.7, size = 3) +  #Adjust Transparency and Point Size
-  geom_smooth(method = "lm", se = TRUE, linewidth = 1) + # Keep regression lines with confidence intervals
+  geom_point(alpha = 0.7, size = 3) +                                         #Adjust Transparency and Point Size
+  geom_smooth(method = "lm", se = TRUE, linewidth = 1) +                      # Keep regression lines with confidence intervals
   labs(
     title = "Expenditure Per Student and SAT Scores by Participation Rate",
-    x = "Expenditure per Student",
+    x = "Expenditure Per Student",
     y = "SAT Total Score",
+    caption = "Source: College Board (compiled by Danny Kaplan, 2021)",
     color = "SAT Participation Rate") +
   theme_minimal() +
   theme(
-    plot.title = element_text(face = "bold", size = 15, hjust = 0.5), # Make Title Bold and Centered
-    legend.position = "bottom") # Move the legend to the bottom
+    plot.title = element_text(face = "bold", size = 12, hjust = 0.5),         # Make Title Bold and Centered
+    plot.caption = element_text(size = 10, hjust = 0.5),                      # Adjust size of caption
+    panel.grid.major = element_line(color = "gray80"),                        # Adjust grid lines
+    legend.position = "right")                                                # Position the Legend on the right
 ```
 
 # Reflection 

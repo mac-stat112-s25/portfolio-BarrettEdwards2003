@@ -1,0 +1,73 @@
+---
+title: "Factors"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
+
+```{r}
+#Example 1 
+library(tidyverse)
+elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv") |> 
+  select(state_abbr, historical, county_name, total_votes_20, repub_pct_20, dem_pct_20) |> 
+  mutate(dem_support_20 = case_when(
+    (repub_pct_20 - dem_pct_20 >= 5) ~ "low",
+    (repub_pct_20 - dem_pct_20 <= -5) ~ "high",
+    .default = "medium"))
+
+# Check It Out
+head(elections)  
+```
+
+```{r}
+# Download Grades Data (Get Rid Of Duplicate Rows!)
+grades <- read.csv("https://mac-stat.github.io/data/grades.csv") |> 
+  distinct(sid, sessionID, .keep_all = TRUE)
+
+# Check it out
+head(grades)
+```
+
+```{r}
+#Explore Number Of Times Each Grade Was Assigned: 
+grade_distribution <- grades |> 
+  count(grade)
+
+head(grade_distribution)
+```
+Exercise 1: Changing Order 
+
+```{r}
+#Change Order Of Colums 
+grade_distribution |>
+  mutate(grade = fct_relevel(grade, c("A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "NC", "S", "AU"))) |>
+  ggplot(aes(x = grade, y = n)) +
+    geom_col()
+```
+
+```{r}
+grade_distribution |>
+  mutate(grade = fct_reorder(grade, n)) |>
+  ggplot(aes(x = grade, y = n)) +
+    geom_col()
+```
+
+```{r}
+grade_distribution |>
+  mutate(grade = fct_reorder(grade, n, .desc = TRUE)) |>
+  ggplot(aes(x = grade, y = n)) +
+    geom_col()
+```
+
+#Exercise 2: Changing Factor Level Labels
+
+```{r}
+grade_distribution |>
+  mutate(grade = fct_relevel(grade, c("A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "NC", "S", "AU"))) |>
+  mutate(grade = fct_recode(grade, "Satisfactory" = "S", "Audit" = "AU")) |>  # Multiple pieces go into the last 2 blanks
+  ggplot(aes(x = grade, y = n)) +
+    geom_col()
+```
+

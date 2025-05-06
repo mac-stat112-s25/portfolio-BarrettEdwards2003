@@ -4,7 +4,10 @@ execute:
   echo: true 
   warning: false
   error: false 
-  code-fold: true 
+  
+format: 
+  html:
+   code-fold: true 
 ---
 
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
@@ -14,7 +17,6 @@ Construct county-level maps of median_rent and median_age.
 
 ```{r}
 #Load Libraries 
-# Load necessary libraries
 library(leaflet)
 library(sf)
 library(dplyr)
@@ -90,9 +92,10 @@ ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
     theme(legend.position = "right",
           plot.title = element_text(hjust = 0.5, size = 16, face = "bold"), # Centered, larger title
           plot.subtitle = element_text(hjust = 0.5, size = 12), # Centered subtitle
-          plot.caption = element_text(hjust = 0, size = 10, color = "black")) + # Left-aligned caption
+          plot.caption = element_text(hjust = 0.5, size = 10, color = "black")) + # Left-aligned caption
     labs(title = "Median Rent by County in the United States",
-         subtitle = "Estimated for 2020")
+         subtitle = "Estimated for 2020",
+         caption = "Source: Federal Election Commission (2020)")
 ```
 
 The "Median Rent by County in the United States' visualization helps us understand the spatial patterns of median monthly rent across the United States at the county level in 2020. It highlights regional disparities and the influence of living in a coastal and/or metropolitan areas on housing costs. The lightest areas on the map, representing the highest median monthly rents, are predominantly concentrated along the coasts. Additionally, major inland metropolitan areas, such as Chicago, Denver, and Dallas, also exhibit higher median rents compared to their surrounding areas.

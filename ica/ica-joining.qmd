@@ -1,0 +1,246 @@
+---
+title: "Joining"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
+
+```{r}
+#Download Necessary Libraries 
+library(tidyverse)
+
+#Students Data Frame
+students_1 <- data.frame(
+  student = c("A", "B", "C"),
+  class = c("STAT 101", "GEOL 101", "ANTH 101"))
+
+# Check It Out
+students_1
+```
+
+```{r}
+#Enrollments
+enrollments_1 <- data.frame(
+  class = c("STAT 101", "ART 101", "GEOL 101"),
+  enrollment = c(18, 17, 24))
+
+# Check it out
+enrollments_1
+```
+
+#Example 1
+
+a. class
+b. a student that took ANTH 101
+c. data on ART 101
+
+
+```{r}
+#Example 2
+enrollments_1 |> 
+  left_join(students_1)
+```
+
+```{r}
+#Example 3
+enrollments_1 |> 
+    inner_join(students_1)
+```
+
+```{r}
+#Example 4
+enrollments_1 |> 
+    full_join(students_1)
+```
+
+```{r}
+#Example 5
+enrollments_1 |> 
+  semi_join(students_1)
+```
+
+```{r}
+#Example 6
+enrollments_1 |> 
+  anti_join(students_1)
+```
+
+#Exercise #2: More Small Practice
+
+```{r}
+# People who have voted
+voters <- data.frame(
+  id = c("A", "D", "E", "F", "G"),
+  times_voted = c(2, 4, 17, 6, 20))
+
+voters
+```
+
+```{r}
+# Contact info for voting age adults
+contact <- data.frame(
+  name = c("A", "B", "C", "D"),
+  address = c("summit", "grand", "snelling", "fairview"),
+  age = c(24, 89, 43, 38))
+
+contact
+```
+
+```{r}
+# 1. We want contact info for people who HAVEN'T voted
+contact |> 
+  anti_join(voters, join_by(name == id))
+```
+
+```{r}
+# 2. We want contact info for people who HAVE voted
+contact |> 
+  semi_join(voters, join_by(name == id))
+```
+
+```{r}
+# 3. We want any data available on each person
+contact |> 
+  full_join(voters, join_by(name == id))
+```
+
+```{r}
+# 4. We want to add contact info, when possible, to the voting roster
+voters |> 
+  left_join(contact, join_by(id == name))
+```
+
+#Exercise 3: Bigger Datasets
+
+```{r}
+# Download Data 
+grades <- read.csv("https://mac-stat.github.io/data/grades.csv") |> 
+  distinct(sid, sessionID, .keep_all = TRUE)
+head(grades)
+```
+
+```{r}
+#Download Data
+courses <- read.csv("https://mac-stat.github.io/data/courses.csv")
+head(courses)
+```
+
+```{r}
+# How many observations (rows) and variables (columns) are there in the grades data?
+dim(grades)
+```
+
+```{r}
+# How many observations (rows) and variables (columns) are there in the courses data?
+dim(courses)
+```
+
+```{r}
+#Example 4: Class Size
+courses |> 
+  count(sessionID) |> 
+  filter(n > 1)
+```
+
+```{r}
+# Part A
+courses_combined <- courses |>
+  group_by(sessionID) |>
+  summarize(enroll = sum(enroll))
+
+# Check that this has 1695 rows and 2 columns
+dim(courses_combined)
+```
+
+```{r}
+#Part  B
+courses_combined |> 
+  summarize(median(enroll))
+```
+```{r}
+#Part C
+student_class_size <- grades |> 
+  left_join(courses_combined) |> 
+  group_by(sid) |> 
+  summarize(med_class = median(enroll))
+
+head(student_class_size)
+```
+
+```{r}
+#Part D
+ggplot(student_class_size, aes(x = med_class)) +
+  geom_histogram(color = "white")
+```
+
+#Exercise 6: All the wrangling
+
+```{r}
+#Download Data - GPA Conversion
+gpa_conversion <- tibble(
+  grade = c("A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "NC", "AU", "S"), 
+  gp = c(4.3, 4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, NA, NA))
+
+gpa_conversion
+```
+
+```{r}
+#Part A
+courses |> 
+  group_by(dept) |> 
+  summarize(total = sum(enroll)) |> 
+  arrange(desc(total))
+```
+
+```{r}
+#Part B
+grades |> 
+  left_join(gpa_conversion) |> 
+  group_by(sid) |> 
+  summarize(mean(gp, na.rm = TRUE))
+```
+
+```{r}
+#Part C
+grades |> 
+  left_join(gpa_conversion) |> 
+  group_by(sid) |> 
+  summarize(gpa = mean(gp, na.rm = TRUE)) |> 
+  summarize(median(gpa))
+```
+
+```{r}
+#Part D
+grades |> 
+  left_join(gpa_conversion) |> 
+  mutate(below_b_plus = (gp < 3.3)) |> 
+  summarize(mean(below_b_plus, na.rm = TRUE))
+```
+
+```{r}
+#Part E
+grades |> 
+  left_join(gpa_conversion) |> 
+  left_join(courses) |> 
+  group_by(iid) |> 
+  summarize(gpa = mean(gp, na.rm = TRUE)) |> 
+  arrange(gpa)
+```
+
+```{r}
+#Part F
+cross_listed <- courses |> 
+  count(sessionID) |> 
+  filter(n > 1)
+
+grades |> 
+  anti_join(cross_listed) |> 
+  inner_join(courses) |> 
+  left_join(gpa_conversion) |> 
+  group_by(dept) |> 
+  summarize(gpa = mean(gp, na.rm = TRUE)) |> 
+  arrange(gpa)
+```
+

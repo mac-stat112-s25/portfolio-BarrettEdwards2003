@@ -1,0 +1,36 @@
+---
+title: "Strings"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
+
+#Example 1 
+
+```{r}
+library(tidyverse)
+
+classes <- data.frame(
+  sem        = c("SP2023", "FA2023", "SP2024"),
+  area       = c("History", "Math", "Anthro"),
+  enroll     = c("30 - people", "20 - people", "25 - people"),
+  instructor = c("Ernesto Capello", "Lori Ziegelmeier", "Arjun Guneratne"))
+
+classes
+```
+
+```{r}
+# Define a new variable "num" that adds up the number of characters in the area label
+
+```
+
+```{r}
+# Change the areas to "history", "math", "anthro" instead of "History", "Math", "Anthro"
+
+```
+
+
+
+
