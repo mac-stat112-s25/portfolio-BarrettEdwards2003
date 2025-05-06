@@ -23,7 +23,9 @@ library(tidyr)
 library(tidyverse)
 library(readr)
 library(stringr)
+```
 
+```{r}
 # Load United States Congressional Districts
 cd118 <- congressional_districts(cb = TRUE, resolution = "20m", year = 2022)
 

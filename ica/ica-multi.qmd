@@ -1,5 +1,5 @@
 ---
-title: "ICA Mulivariate Viz"
+title: "Mulivariate Viz"
 execute: 
   echo: true 
   warning: false

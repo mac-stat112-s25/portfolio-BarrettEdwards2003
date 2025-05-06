@@ -1,4 +1,11 @@
-# Reshaping In-Class Activities 
+---
+title: "Reshaping"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
 
 ```{r}
 library(tidyverse)
