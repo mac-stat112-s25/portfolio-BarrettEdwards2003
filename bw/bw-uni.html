@@ -90,7 +90,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="../style/custom.css">
+}</script><script src="../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="stylesheet" href="../style/custom.css">
 </head>
 <body class="nav-sidebar docked">
 
@@ -181,8 +182,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../bw/Exam-two.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exam 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../bw/SoloProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solo Project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solo Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -199,55 +206,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-uni.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Univariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-bi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bivariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-multi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-spatial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Wrangling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-dates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Dates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Dates</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-reshaping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reshaping</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reshaping</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-joining.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Joining</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Joining</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ica/ica-factors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
   </div>
 </li>
       </ul>
@@ -280,29 +287,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">### UNIVARIATE VIZUALIZATION </span><span class="al">###</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Import Data </span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Download Tidyverse</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#Reorder Rating</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a>hikes<span class="sc">$</span>rating <span class="ot">&lt;-</span> <span class="fu">factor</span>(hikes<span class="sc">$</span>rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"easy"</span>, <span class="st">"moderate"</span>, <span class="st">"difficult"</span>))</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># Create Univariate Visualization with improvements</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="fu">ggplot</span>(hikes, <span class="fu">aes</span>(<span class="at">x =</span> rating)) <span class="sc">+</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span>              <span class="co"># Adjust colors and width</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-16"><a href="#cb1-16"></a>    <span class="at">title =</span> <span class="st">"Distribution of Hike Ratings"</span>,                                   <span class="co"># Add title</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>    <span class="at">x =</span> <span class="st">"Hike Rating"</span>,                                                        <span class="co"># Label x-axis</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>    <span class="at">y =</span> <span class="st">"Frequency of Hikes"</span>,                                                 <span class="co"># Label y-axis</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>    <span class="at">caption =</span> <span class="st">"Source: Serhiy Mytrovtsiy, 2020"</span>) <span class="sc">+</span>                            <span class="co"># Add source info</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                                           <span class="co"># Clean background</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),     <span class="co"># Make the title bold</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),                               <span class="co"># Adjust size of  caption </span></span>
-<span id="cb1-23"><a href="#cb1-23"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>))                    <span class="co"># Adjust grid lines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Load Libraries </span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Import Data </span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Create Table Previewing The Dataset </span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="fu">kable</span>(<span class="fu">head</span>(hikes), <span class="at">caption =</span> <span class="st">"Hikes Data Sample"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
-<p><img src="bw-uni_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<table class="table table-striped table-hover table-sm small" data-quarto-postprocess="true">
+<caption>Hikes Data Sample</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">peak</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">elevation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">difficulty</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ascent</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">length</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">time</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">rating</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mt. Marcy</td>
+<td style="text-align: right;">5344</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3166</td>
+<td style="text-align: right;">14.8</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: left;">moderate</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Algonquin Peak</td>
+<td style="text-align: right;">5114</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2936</td>
+<td style="text-align: right;">9.6</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: left;">moderate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mt. Haystack</td>
+<td style="text-align: right;">4960</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3570</td>
+<td style="text-align: right;">17.8</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: left;">difficult</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mt. Skylight</td>
+<td style="text-align: right;">4926</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4265</td>
+<td style="text-align: right;">17.9</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: left;">difficult</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Whiteface Mtn.</td>
+<td style="text-align: right;">4867</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2535</td>
+<td style="text-align: right;">10.4</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: left;">easy</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dix Mtn.</td>
+<td style="text-align: right;">4857</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2800</td>
+<td style="text-align: right;">13.2</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: left;">moderate</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Download Tidyverse</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#Reorder Rating</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>hikes<span class="sc">$</span>rating <span class="ot">&lt;-</span> <span class="fu">factor</span>(hikes<span class="sc">$</span>rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"easy"</span>, <span class="st">"moderate"</span>, <span class="st">"difficult"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Create Univariate Visualization with improvements</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">ggplot</span>(hikes, <span class="fu">aes</span>(<span class="at">x =</span> rating)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span>              <span class="co"># Adjust colors and width</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="at">title =</span> <span class="st">"Distribution of Hike Ratings"</span>,                                   <span class="co"># Add title</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="at">x =</span> <span class="st">"Hike Rating"</span>,                                                        <span class="co"># Label x-axis</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="at">y =</span> <span class="st">"Frequency of Hikes"</span>,                                                 <span class="co"># Label y-axis</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="at">caption =</span> <span class="st">"Source: Serhiy Mytrovtsiy, 2020"</span>) <span class="sc">+</span>                            <span class="co"># Add source info</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                                           <span class="co"># Clean background</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),     <span class="co"># Make the title bold</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),                               <span class="co"># Adjust size of  caption </span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>))                    <span class="co"># Adjust grid lines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<p><img src="bw-uni_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -733,45 +820,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Univariate Viz"</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">  echo: true </span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  warning: false</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">  error: false </span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">  </span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">  html:</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">   code-fold: true </span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">---</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a>Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="in">```{r}</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="do">### UNIVARIATE VIZUALIZATION </span><span class="al">###</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="co"># Import Data </span></span>
-<span id="cb2-21"><a href="#cb2-21"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span>
-<span id="cb2-22"><a href="#cb2-22"></a></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="co"># Download Tidyverse</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-25"><a href="#cb2-25"></a></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#Reorder Rating</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a>hikes<span class="sc">$</span>rating <span class="ot">&lt;-</span> <span class="fu">factor</span>(hikes<span class="sc">$</span>rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"easy"</span>, <span class="st">"moderate"</span>, <span class="st">"difficult"</span>))</span>
-<span id="cb2-28"><a href="#cb2-28"></a></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="co"># Create Univariate Visualization with improvements</span></span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="fu">ggplot</span>(hikes, <span class="fu">aes</span>(<span class="at">x =</span> rating)) <span class="sc">+</span></span>
-<span id="cb2-31"><a href="#cb2-31"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span>              <span class="co"># Adjust colors and width</span></span>
-<span id="cb2-32"><a href="#cb2-32"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-33"><a href="#cb2-33"></a>    <span class="at">title =</span> <span class="st">"Distribution of Hike Ratings"</span>,                                   <span class="co"># Add title</span></span>
-<span id="cb2-34"><a href="#cb2-34"></a>    <span class="at">x =</span> <span class="st">"Hike Rating"</span>,                                                        <span class="co"># Label x-axis</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a>    <span class="at">y =</span> <span class="st">"Frequency of Hikes"</span>,                                                 <span class="co"># Label y-axis</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a>    <span class="at">caption =</span> <span class="st">"Source: Serhiy Mytrovtsiy, 2020"</span>) <span class="sc">+</span>                            <span class="co"># Add source info</span></span>
-<span id="cb2-37"><a href="#cb2-37"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                                           <span class="co"># Clean background</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),     <span class="co"># Make the title bold</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),                               <span class="co"># Adjust size of  caption </span></span>
-<span id="cb2-40"><a href="#cb2-40"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>))                    <span class="co"># Adjust grid lines</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Univariate Viz"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">  echo: true </span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">  warning: false</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">  error: false </span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">  </span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">  html:</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">   code-fold: true </span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">---</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a>Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="in">```{r}</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="do">### UNIVARIATE VIZUALIZATION </span><span class="al">###</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co"># Load Libraries </span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co"># Import Data </span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27"></a></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co"># Create Table Previewing The Dataset </span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="fu">kable</span>(<span class="fu">head</span>(hikes), <span class="at">caption =</span> <span class="st">"Hikes Data Sample"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-30"><a href="#cb3-30"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="in">```</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="in">```{r}</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="co"># Download Tidyverse</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-38"><a href="#cb3-38"></a></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="co">#Reorder Rating</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a>hikes<span class="sc">$</span>rating <span class="ot">&lt;-</span> <span class="fu">factor</span>(hikes<span class="sc">$</span>rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"easy"</span>, <span class="st">"moderate"</span>, <span class="st">"difficult"</span>))</span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="co"># Create Univariate Visualization with improvements</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="fu">ggplot</span>(hikes, <span class="fu">aes</span>(<span class="at">x =</span> rating)) <span class="sc">+</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span>              <span class="co"># Adjust colors and width</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-46"><a href="#cb3-46"></a>    <span class="at">title =</span> <span class="st">"Distribution of Hike Ratings"</span>,                                   <span class="co"># Add title</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a>    <span class="at">x =</span> <span class="st">"Hike Rating"</span>,                                                        <span class="co"># Label x-axis</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a>    <span class="at">y =</span> <span class="st">"Frequency of Hikes"</span>,                                                 <span class="co"># Label y-axis</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a>    <span class="at">caption =</span> <span class="st">"Source: Serhiy Mytrovtsiy, 2020"</span>) <span class="sc">+</span>                            <span class="co"># Add source info</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>                                                           <span class="co"># Clean background</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),     <span class="co"># Make the title bold</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),                               <span class="co"># Adjust size of  caption </span></span>
+<span id="cb3-53"><a href="#cb3-53"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray80"</span>))                    <span class="co"># Adjust grid lines</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
