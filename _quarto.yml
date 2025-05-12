@@ -25,31 +25,29 @@ book:
     - part: "Best Work"
       chapters: 
       - bw/bw-uni.qmd
-      - bw/bw-bi.qmd
-      - bw/bw-tri.qmd
-      - bw/bw-quad.qmd
-      - bw/bw-spatial.qmd
-      - bw/Exam-one.qmd
-      - bw/Exam-two.qmd 
-      - bw/SoloProject.qmd
+      # - bw/bw-bi.qmd
+      # - bw/bw-tri.qmd
+      # - bw/bw-quad.qmd
+      # - bw/bw-spatial.qmd
+      # - bw/Exam-one.qmd
+      # - bw/Exam-two.qmd 
+      # - bw/SoloProject.qmd
       
-      - part: "Summary Sheets"
-       chapters: 
-      - images/Exam-One-Summary-Sheet.jpg
-      - images/Exam-Two-Summary-Sheet.jpg
-      - images/Exam-Two-Summary-Sheet-Continued.jpg
+    - part: "Summary Sheets"
+      chapters:
+       - summary-sheets/Vizualization-Summary-Sheet.qmd
 
-    - part: "In-class Activities"
-      chapters: 
-      - ica/ica-uni.qmd
-      - ica/ica-bi.qmd
-      - ica/ica-multi.qmd
-      - ica/ica-spatial.qmd
-      - ica/ica-wrangling.qmd
-      - ica/ica-dates.qmd 
-      - ica/ica-reshaping.qmd
-      - ica/ica-joining.qmd
-      - ica/ica-factors.qmd
+    # - part: "In-class Activities"
+    #   chapters: 
+    #   - ica/ica-uni.qmd
+    #   - ica/ica-bi.qmd
+    #   - ica/ica-multi.qmd
+    #   - ica/ica-spatial.qmd
+    #   - ica/ica-wrangling.qmd
+    #   - ica/ica-dates.qmd 
+    #   - ica/ica-reshaping.qmd
+    #   - ica/ica-joining.qmd
+    #   - ica/ica-factors.qmd
 
 format:
   html:
