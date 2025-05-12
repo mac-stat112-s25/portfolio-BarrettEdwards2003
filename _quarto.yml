@@ -32,6 +32,12 @@ book:
       - bw/Exam-one.qmd
       - bw/Exam-two.qmd 
       - bw/SoloProject.qmd
+      
+      - part: "Summary Sheets"
+       chapters: 
+      - images/Exam-One-Summary-Sheet.jpg
+      - images/Exam-Two-Summary-Sheet.jpg
+      - images/Exam-Two-Summary-Sheet-Continued.jpg
 
     - part: "In-class Activities"
       chapters: 
