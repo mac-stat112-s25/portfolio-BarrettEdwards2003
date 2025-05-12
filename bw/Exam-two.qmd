@@ -11,6 +11,10 @@ format:
 --- 
 
 ```{r}
+#Load Libraries 
+library(knitr)
+library(kableExtra)
+
 #Download Food Consumption and CO2 Emissions Dataset
 food_consumption <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-02-18/food_consumption.csv')
 
@@ -19,13 +23,17 @@ food_consumption <- readr::read_csv('https://raw.githubusercontent.com/rfordatas
 tuesdata <- tidytuesdayR::tt_load('2020-02-18')
 tuesdata <- tidytuesdayR::tt_load(2020, week = 8)
 
-
 food_consumption <- tuesdata$food_consumption
 ```
 
 ```{r}
 # 2.1 Data Dictionary (View Data)
 food_consumption
+
+# Show Table
+kable(head(food_consumption), 
+      caption = "Food Consumption Data") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 
@@ -47,8 +55,13 @@ fc <- tuesdata$food_consumption
 
 ```{r}
 # 2.4 Inspect Data 
-str(fc)
-head (fc, 22)
+   str(fc)
+   head (fc, 22)
+
+# Show Table
+kable(head(food_consumption, 22), 
+      caption = "fc") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 ```{r}
@@ -61,6 +74,11 @@ fcc <- food_consumption |>
   "Nuts" = "Nuts inc. Peanut Butter"))
 
 fcc$food_category #2.8 make sure the new values of food_category variable are as expected 
+
+# Show Table
+kable(head(fcc), 
+      caption = "fcc") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 ```{r}
@@ -71,7 +89,10 @@ top_five_countries <- fcc |>
   arrange(desc(consumption)) |>
   head(5)
 
-top_five_countries
+# Show Table
+kable(head(top_five_countries, 5), 
+      caption = "fcc") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 ```{r}
 # Make The Plot 
@@ -97,17 +118,22 @@ top_five_per_food <- fcc |>
 ```
 
 ```{r}
+#| fig-height: 8
+#| fig-width: 15
 #Plot The Visualization Using geom_col and facet_wrap
 ggplot(top_five_per_food, aes(x = reorder(country, consumption), y = consumption)) +
   geom_col(fill = "steelblue") +
-  geom_text(aes(label = round(consumption, 1)), hjust = -0.1, size = 3) +  # Adjusted hjust for spacing
+  geom_text(aes(label = round(consumption, 1)), hjust = -0.1, size = 3) +  
   facet_wrap(~ food_category, scales = "free_y", ncol = 2) +  # Changed scales to "free_y"
   coord_flip() +
   labs(
     title = "Top 5 Countries by Consumption for Each Food Category",
     x = "Country",
     y = "Consumption (kg/person/year)" ) +
-  theme_minimal() 
+  theme_minimal() + 
+  theme(
+    strip.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", size = 20, hjust = 0.5))
 ```
 
 ```{r}

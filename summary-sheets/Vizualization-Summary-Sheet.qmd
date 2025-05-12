@@ -1,0 +1,10 @@
+---
+title: "Exam 1 Summay Sheet"
+format: html
+---
+
+```{r}
+#Load Image
+<img src="../images/IMG_5853.jpg" width="800" height="1200">
+```
+

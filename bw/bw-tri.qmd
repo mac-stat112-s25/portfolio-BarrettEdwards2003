@@ -13,11 +13,21 @@ format:
 Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 
 ```{r}
+### TRIVARIATE VIZUALIZATION ###
+
+# Load Libraries 
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+
 # Import Education Data
 education <- read.csv("https://mac-stat.github.io/data/sat.csv")
 head(education)
-```
 
+# Create Table Previewing The Dataset 
+kable(head(education), caption = "Education Data Sample") |> 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
 ```{r}
 # Download Library 
 library(ggplot2)

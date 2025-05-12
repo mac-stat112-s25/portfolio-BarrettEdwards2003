@@ -15,12 +15,20 @@ Use this file to generate a professional looking **bivariate** visualization.  T
 ```{r}
 ### BIVARIATE VISUALIZATION ###
 
-# Load GGPLOT 
+# Load Libraries 
 library(ggplot2)
+library(knitr)
+library(kableExtra)
 
 # Load Data
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
 
+# Create Table Previewing The Dataset 
+kable(head(elections), caption = "Election Data Sample") |> 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r}
 # Create Plot
 ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
   geom_density(alpha = 0.55) +                                          # Add transparency
@@ -40,4 +48,5 @@ ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
     plot.caption = element_text(size = 10),                            # Adjust size of caption  
     panel.grid.major = element_line(color = "gray80"))                 # Adjust grid lines 
 ```
+
 

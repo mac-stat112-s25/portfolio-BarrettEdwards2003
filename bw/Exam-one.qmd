@@ -11,19 +11,25 @@ format:
 ---
 
 ```{r}
+# Install Packages 
+library(tidytuesdayR)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+```{r}
 #Download Food Consumption and CO2 Emissions Dataset
 food_consumption <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-02-18/food_consumption.csv')
 
-food_consumption
+kable(head(food_consumption), 
+      caption = "Food Consumption") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
 ```
 
 Using an appropriate viz, you need to answer the following grand research question: What does the consumption of each food category in each country look like? 
 
-```{r}
-# Install Packages 
-library(tidytuesdayR)
-library(tidyverse)
-```
 ```{r}
 # Get Data
 tuesdata <- tt_load('2020-02-18')
@@ -40,6 +46,7 @@ dim(fc)
 
 str(fc)
 ```
+
 What are the units of observations?
 
 Units: Country, Food, Category 

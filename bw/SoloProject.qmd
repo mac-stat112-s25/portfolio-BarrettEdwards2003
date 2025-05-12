@@ -12,7 +12,6 @@ format:
 
 For my solo project, I wanted to visualize the shifts in Democratic voteshare across Minnesota’s eight congressional districts between the 2022 midterm elections and the 2024 general election. This project involved collecting certified election results from both cycles, calculating the change in Democratic voteshare, and displaying those shifts through a comparative visual format.
 
-
 ```{r}
 # Load Necessary Libraries
 library(tigris)
@@ -23,11 +22,13 @@ library(tidyr)
 library(tidyverse)
 library(readr)
 library(stringr)
+library(knitr)
+library(kableExtra)
 ```
 
 ```{r}
 # Load United States Congressional Districts
-cd118 <- congressional_districts(cb = TRUE, resolution = "20m", year = 2022)
+cd118 <- congressional_districts(cb = TRUE, resolution = "20m", year = 2022, progress_bar = FALSE)
 
 # Create Map
 leaflet(cd118) |>
@@ -59,6 +60,11 @@ Minnesota_Congressional_Results_2022 <- data_2022 |>
   filter(Party %in% c("DFL", "R"))  # Filter for DFL and R parties
 
 Minnesota_Congressional_Results_2022
+
+# Show Table
+kable(head(Minnesota_Congressional_Results_2022), 
+      caption = "Minnesota Congressional Election Results 2022") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 ```{r}
@@ -72,7 +78,10 @@ Minnesota_Congressional_Results_2024 <- data_2024 |>
          Voteshare = X15)  |>
   filter(Party %in% c("DFL", "R"))  # Keep only DFL and R parties 
 
-Minnesota_Congressional_Results_2024
+# Show Table
+kable(head(Minnesota_Congressional_Results_2024), 
+      caption = "Minnesota Congressional Election Results 2024") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 ```{r}
@@ -90,9 +99,11 @@ Combined_Minnesota_Congressional_Results <- bind_rows(
 # Fix District Variable (To Match Geographic Data)
 Combined_Minnesota_Congressional_Results$District <- sprintf("%02d", Combined_Minnesota_Congressional_Results$District)
 
-Combined_Minnesota_Congressional_Results
+# Show Table
+kable(head(Combined_Minnesota_Congressional_Results), 
+      caption = "Combined Congressional Results") |>
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
-
 
 ```{r}
 # Create the 'year_party' column for pivoting
@@ -105,15 +116,15 @@ voteshare_data <- Combined_Minnesota_Congressional_Results |>
               names_from = year_party,
               values_from = `Voteshare`)
 
-# View Data 
-voteshare_data
+# Show Table
+kable(head(voteshare_data, 8), 
+      caption = "Voteshare Data") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 ```{r}
+#Merge Spatial and Numeric Data
 mn_cd_with_results <- left_join(mn_cd, voteshare_data, by = c("CD118FP" = "District"))
-
-# View Merged Data
-mn_cd_with_results
 ```
 
 ```{r}
@@ -160,8 +171,6 @@ mn_cd_with_results_1 <- mn_cd_with_results |>
   mutate(
     democratic_change = dfl_2024 - dfl_2022,
     republican_change = r_2024 - r_2022)
-
-mn_cd_with_results_1
 ```
 
 ```{r}

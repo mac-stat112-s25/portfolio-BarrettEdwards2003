@@ -14,7 +14,9 @@ Use this file to generate a professional looking **quadvariate** visualization. 
 
 
 ```{r}
-# Load Necessary Libraries
+### QUADVARIATE VIZUALIZATION ###
+
+# Load Libraries
 library(tidyverse)
 library(fivethirtyeight)
 library(ggplot2)
