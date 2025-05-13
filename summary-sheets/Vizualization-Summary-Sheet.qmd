@@ -3,5 +3,5 @@ title: "Exam 1 Summary Sheet"
 format: html
 ---
 
-![](../images/Exam-One-Summary-Sheet.jpg){width=250}
+![](../images/Exam-One-Summary-Sheet.jpg){width=800}
 
