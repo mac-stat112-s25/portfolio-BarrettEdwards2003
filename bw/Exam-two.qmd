@@ -19,7 +19,6 @@ library(kableExtra)
 food_consumption <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-02-18/food_consumption.csv')
 
 # Install via pak::pak("dslc-io/tidytuesdayR")
-
 tuesdata <- tidytuesdayR::tt_load('2020-02-18')
 tuesdata <- tidytuesdayR::tt_load(2020, week = 8)
 
@@ -28,7 +27,7 @@ food_consumption <- tuesdata$food_consumption
 
 ```{r}
 # 2.1 Data Dictionary (View Data)
-food_consumption
+#food_consumption
 
 # Show Table
 kable(head(food_consumption), 
@@ -55,8 +54,8 @@ fc <- tuesdata$food_consumption
 
 ```{r}
 # 2.4 Inspect Data 
-   str(fc)
-   head (fc, 22)
+   #str(fc)
+   #head (fc, 22)
 
 # Show Table
 kable(head(food_consumption, 22), 
@@ -73,7 +72,8 @@ fcc <- food_consumption |>
   "Wheat" = "Wheat and Wheat Products",
   "Nuts" = "Nuts inc. Peanut Butter"))
 
-fcc$food_category #2.8 make sure the new values of food_category variable are as expected 
+#2.8 make sure the new values of food_category variable are as expected 
+#fcc$food_category 
 
 # Show Table
 kable(head(fcc), 
@@ -94,6 +94,7 @@ kable(head(top_five_countries, 5),
       caption = "fcc") |>
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
+
 ```{r}
 # Make The Plot 
 ggplot(top_five_countries, aes(x = reorder(country, consumption), y = consumption)) +

@@ -49,3 +49,8 @@ ggplot(hikes, aes(x = rating)) +
         panel.grid.major = element_line(color = "gray80"))                    # Adjust grid lines
 ```
 
+# Reflection
+
+This bar chart shows the distribution of hike ratings. The x-axis represents the categorical variable Hike Rating, with three categories: "easy," "moderate," and "difficult." The y-axis represents the Frequency of Hikes, indicating the number of hikes within each rating category. Each bar's height corresponds to the number of hikes assigned to that particular rating. 
+
+This viz is effective because is simple to understand, even for someone unfamiliar with the data. The chart provides a clear view of how hikes are distributed across difficulty levels. The "moderate" category has by far the highest frequency, while the "easy" and "difficult" categories are less common, suggesting that relativley few hikes fall at the extremes of difficulty.

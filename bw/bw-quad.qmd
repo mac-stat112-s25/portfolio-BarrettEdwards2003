@@ -12,14 +12,16 @@ format:
 
 Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 
-
 ```{r}
-### QUADVARIATE VIZUALIZATION ###
-
 # Load Libraries
 library(tidyverse)
 library(fivethirtyeight)
 library(ggplot2)
+```
+
+
+```{r}
+### QUADVARIATE VIZUALIZATION ###
 
 # Create `new_bechdel` Dataset
 new_bechdel <- bechdel |>
@@ -28,7 +30,7 @@ new_bechdel <- bechdel |>
 ```
 
 ```{r}
-# Create Quadvariate Vizualization 
+### CREATE PLOT ###  
 
 ggplot(new_bechdel, aes(x = budget, y = domgross, color = binary)) +
   geom_point(alpha = 0.7, size = 0.5) +
@@ -60,3 +62,9 @@ ggplot(new_bechdel, aes(x = budget, y = domgross, color = binary)) +
     axis.text.y = element_text(size = 10),
     plot.margin = margin(1, 1, 1, 1, "cm"))
 ```
+
+# Reflection 
+
+This quadvariate visualization uses a faceted scatter plot to demonstrate the relationship between a movie's Budget (x-axis) and its Domestic Gross (y-axis), segmented by the Bechdel Test Result (color: red for FAIL, blue-green for PASS) and further faceted by the 'Reason for Failure' on the Bechdel Test (No Women, No Talk, Men Only, Dubious) and a category for movies that Pass.
+
+The most important takeaway is that there doesn’t appear to be a strong or direct financial reward or penalty tied to whether a film passes or fails the Bechdel Test in this dataset. Both high-grossing and low-grossing films can be found among those that pass the test as well as among the various failure categories. While there is a general trend showing that films with larger budgets tend to earn more, this pattern seems consistent regardless of Bechdel Test results. 

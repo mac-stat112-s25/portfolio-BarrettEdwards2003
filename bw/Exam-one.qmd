@@ -10,6 +10,9 @@ format:
    code-fold: true 
 ---
 
+# Central Question 
+Using an appropriate viz, you need to answer the following grand research question: What does the consumption of each food category in each country look like? 
+
 ```{r}
 # Install Packages 
 library(tidytuesdayR)
@@ -26,9 +29,6 @@ kable(head(food_consumption),
       caption = "Food Consumption") |>
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
-```
-
-Using an appropriate viz, you need to answer the following grand research question: What does the consumption of each food category in each country look like? 
 
 ```{r}
 # Get Data
@@ -36,8 +36,8 @@ tuesdata <- tt_load('2020-02-18')
 fc <- tuesdata$food_consumption 
 ```
 
-```{r}
 # Understand Data - List some initial steps that should be carried after loading the above dataset
+
 head(fc)
 
 nrow(fc)
@@ -45,9 +45,8 @@ nrow(fc)
 dim(fc)
 
 str(fc)
-```
 
-What are the units of observations?
+# What are the units of observations?
 
 Units: Country, Food, Category 
 
@@ -64,12 +63,10 @@ ggplot(food_consumption, aes(x = country, y = consumption)) +
   labs(
     title = "Consumption of Food Categories Across Countries",
     x = "Country",
-    y = "Consumption"
-  ) +
+    y = "Consumption") +
   theme_bw() +  
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) 
 ```
 
 I decided to try doing a Bar Chart Faceted by Food Category. Essentially, for each food category (faceted), you have a 11 bar charts (one per food category) where the y-axis represents countries and the x-axis represents consumption. Within each chart, you have bars for each 130 countries. This type of visualization is good for sing the diversity of consumption levels across the world. However, with 130 countries (130 bars) it makes it difficult to interpret each of the individual values and identify any particular country. If the visualization was interactive, where one could zoom in and out - that may improve it and make it more legible. While not the perfect Viz, I do think this is very useful way to display the data. In Exam #2, we take this research question further and use spatial data to create 11 maps showing the levels of consumption across the world for each of the 11 food categories. 
-

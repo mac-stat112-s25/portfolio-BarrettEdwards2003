@@ -1,0 +1,110 @@
+---
+title: "Data Import"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
+
+Exercise 2: Import Data to RStudio
+
+```{r}
+#Load Libraries
+library(readr)
+library(dplyr)
+library(tidyverse)
+
+#Load Data (Relative File Path)
+imdb_messy <- read_csv("../data/imdb_5000_messy.csv")
+```
+Exercise #3: Check Data
+
+```{r}
+#Part B
+imdb_messy |>
+  mutate(across(where(is.character), as.factor)) |> 
+  summary()
+```
+
+Exercise 4: Clean Data: Factor Variables 1
+
+```{r}
+#Count Color Variable
+imdb_messy |> 
+  count(color)
+```
+
+Exercise 5: Clean Data: Factor Variables 2
+
+Part A: 
+
+It's important to use RCode because we can reproduce it. If we clean the data manually in a spreadsheet, there’s no record of what we changed. By using R code and saving it in the qmd -- we can show our work so that anyone else could understand what we did and how we got there. 
+
+```{r}
+#Part B
+imdb_temp <- imdb_messy |> 
+  mutate(color = fct_recode(color,
+                            "Color" = "COLOR",
+                            "Color" = "color",
+                            "Black_White" = "B&W",
+                            "Black_White" = "Black and White"))
+
+imdb_temp |> 
+  count(color)
+```
+
+
+```{r}
+#Part C
+imdb_temp <- imdb_messy |> 
+  mutate(color = str_replace(color, "COLOR", "Color"),
+         color = str_replace(color, "color", "Color"),
+         color = str_replace(color, "B&W", "Black_White"),
+         color = str_replace(color, "Black and White", "Black_White"))
+
+imdb_temp |> 
+  count(color)
+```
+
+Exercise 6: Clean Data: Missing Data 1
+
+```{r}
+#Part A
+nrow(imdb_messy)
+```
+
+```{r}
+colSums(is.na(imdb_messy))
+```
+
+```{r}
+#Part C
+imdb_messy |> 
+  filter(is.na(actor_1_facebook_likes))
+```
+
+Exercise 7: Clean: Missing Data 2
+
+```{r}
+#Part A
+imdb_messy |> 
+  summarize(mean(duration, na.rm = TRUE))
+```
+
+```{r}
+#Part B
+imdb_temp <- drop_na(imdb_messy)
+nrow(imdb_temp)
+```
+
+```{r}
+colSums(is.na(imdb_temp))
+```
+
+```{r}
+#Part C
+ggplot(imdb_messy, aes(x = duration, fill = color)) +
+  geom_density()
+```
+

@@ -59,8 +59,6 @@ Minnesota_Congressional_Results_2022 <- data_2022 |>
          Voteshare = X15) |>
   filter(Party %in% c("DFL", "R"))  # Filter for DFL and R parties
 
-Minnesota_Congressional_Results_2022
-
 # Show Table
 kable(head(Minnesota_Congressional_Results_2022), 
       caption = "Minnesota Congressional Election Results 2022") |>

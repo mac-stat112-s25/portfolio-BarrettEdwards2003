@@ -1,4 +1,11 @@
-# Filter 
+---
+title: "Filter"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
+---
 
 ```{r}
 library(tidyverse)
@@ -14,11 +21,11 @@ penguins_heavy <- penguins |>
  filter(species == "Adelie", body_mass_g > 4700, !is.na(body_mass_g))
 
 # Get data on penguin body mass only
-penguin_body_mass <- penguins %>%
-  select(body_mass_g) |>
+penguin_body_mass <- penguins |>
+  select(body_mass_g)
 
 # Show just the first 6 rows
-penguin_body_mass <- penguins %>%
+penguin_body_mass <- penguins |>
   select(body_mass_g) |>
   head()
 
@@ -47,7 +54,7 @@ penguins |>
 # NOTE: there are 1000 g in 1 kg
 # Show just the first 6 rows
 penguins |> 
-  mutate(body_mass_kg = body_mass_g / 1000)
+  mutate(body_mass_kg = body_mass_g / 1000) |>
   head()
 ```
 
@@ -57,12 +64,6 @@ library(ggplot2)
 ggplot(penguins, aes(x = species, fill = species)) + 
   geom_bar() 
 ```
-
-```{r}
-
-
-```
-
 
 ```{r}
 # Create a dataset with just Adelie and Chinstrap using %in%

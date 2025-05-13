@@ -1,8 +1,14 @@
 ---
 title: "Univariate Viz"
+execute: 
+  echo: true 
+  warning: false
+  error: false 
+  code-fold: true 
 ---
 
 Use this file for practice with the **univariate viz** in-class activity.  Refer to the class website for details.
+
 ```{r}
 # Exercise 1
 # Import data 

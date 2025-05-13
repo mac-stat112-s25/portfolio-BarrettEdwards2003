@@ -49,4 +49,10 @@ ggplot(elections, aes(x = repub_pct_20, fill = historical)) +
     panel.grid.major = element_line(color = "gray80"))                 # Adjust grid lines 
 ```
 
+# Reflection
+
+This overlapping density plot shows the distribution of 2020 Republican vote share (x-axis) by historical voting pattern. Red, blue, and purple represent historically Republican, Democratic, and swing counties, respectively. The height of each curve reflects the density of counties at a given vote share, and overlapping areas indicate where counties with different political histories had similar 2020 outcomes.
+
+The plot shows that counties with Republican histories tended to have higher Republican vote shares, while Democratic counties leaned lower. Swing counties showed a more even spread. The plot highlights a strong relationship between historical leaning and 2020 results, while the overlaps reveal some variation in strongly partisan areas.
+
 

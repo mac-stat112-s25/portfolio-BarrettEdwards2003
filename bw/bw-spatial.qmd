@@ -12,9 +12,6 @@ format:
 
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 
-### Spacial Vizualization: Exercise #10 ###
-Construct county-level maps of median_rent and median_age.
-
 ```{r}
 #Load Libraries 
 library(leaflet)
@@ -55,18 +52,12 @@ elections_by_counties <- elections_by_counties |>
 ```{r}
 # Get Latitude and Longitude Coordinates of States
 states_map <- map_data("state")
-
-# Check It Out
-head(states_map)
 ```
 
 ```{r}
 # Get the latitude and longitude coordinates of county boundaries
 library(socviz)
 data(county_map) 
-
-# Check it out
-head(county_map)
 ```
 
 ```{r}
@@ -98,6 +89,8 @@ ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
          caption = "Source: Federal Election Commission (2020)")
 ```
 
-The "Median Rent by County in the United States' visualization helps us understand the spatial patterns of median monthly rent across the United States at the county level in 2020. It highlights regional disparities and the influence of living in a coastal and/or metropolitan areas on housing costs. The lightest areas on the map, representing the highest median monthly rents, are predominantly concentrated along the coasts. Additionally, major inland metropolitan areas, such as Chicago, Denver, and Dallas, also exhibit higher median rents compared to their surrounding areas.
+# Reflection 
+
+This choropleth map visualizes the estimated median monthly rent across counties in the United States for 2020, with lighter shades indicating higher rents (up to 1600+) and darker shades representing lower rents (down to $400-). The map reveals significant regional disparities, with higher rents concentrated along coastal areas and in major metropolitan centers, while lower rents are generally found in more rural areas of the central and southeastern US. 
 
 Note On Missing Data: It's important to note that there are some counties that appear black on the map, indicating missing data for the median rent in those specific counties for the year 2020. 

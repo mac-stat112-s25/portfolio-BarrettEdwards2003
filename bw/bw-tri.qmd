@@ -22,12 +22,12 @@ library(kableExtra)
 
 # Import Education Data
 education <- read.csv("https://mac-stat.github.io/data/sat.csv")
-head(education)
 
 # Create Table Previewing The Dataset 
 kable(head(education), caption = "Education Data Sample") |> 
   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
+
 ```{r}
 # Download Library 
 library(ggplot2)
@@ -49,17 +49,11 @@ ggplot(education, aes(x = sat, fill = fracCat)) +
     legend.position = "right")                                                # Position the Legend on the right
 ```
 
-# Reflection 
-This visualization demonstrates the relationship between three variables related to education and SAT scores across different states.
+# Reflection
 
-1. The x-axis represents student's combined score of the verbal and math sections of the SAT. Higher values indicate better overall performance on the SAT.
+This trivariate overlapping density plot illustrates the distribution of SAT total scores (x-axis) by density (y-axis), segmented by three color-coded ranges of student participation rates (legend). It allows for a clear comparison of score distributions across states with varying levels of SAT participation.
 
-2. The y-axis shows shows the probability density of the SAT scores within each category of fracCat. In other words, the height of the curves at any given SAT score shows how concentrated the scores are for states within that fracCat group.
-
-3. The Color/Fill displays the fracCat (Proportion of Students Taking the SAT). This is the third variable, categorized into three groups: States where a very small proportion (0 to 15%) took the SAT; States where a moderate proportion (between 15% and 45%) took the SAT; and States where a high proportion (greater than 45% up to 100%) took the SAT.
-
-The most striking takeaway is the clear inverse relationship between the fraction of students taking the SAT and the overall distribution of SAT scores in a state. In states with low participation, the average scores tend to be inflated.
-Conversely, in states with much higher participation, the average scores tend to be lower. 
+The most striking takeaway is the clear inverse relationship between the percentage of students taking the SAT and the overall distribution of SAT scores in a state. In states with low participation, the average scores tend to be inflated. Conversely, in states with much higher participation, the average scores tend to be lower.
 
 ```{r}
 # Create A Scatter Plot with Linear Regression Lines
@@ -83,6 +77,8 @@ ggplot(education, aes(x = expend, y = sat, color = fracCat)) +
 
 # Reflection 
 
-This Scatter Plot displays the relationship between two numerical variables, Expenditure Per Student (on the x-axis) and SAT Total Score (on the y-axis). The third variable, SAT Participation Rate, is introduced through the color of the data points and the separate linear regression lines.This trivariate visualization demonstrates that the proportion of students taking the SAT seems to be a stronger predictor of average SAT scores than expenditure per student. States with lower SAT participation rates tend to have higher average scores, regardless of their spending per student. Conversely, states with high participation rates tend to have lower average scores.
+This trivariate scatter plot displays the relationship between two numerical variables, Expenditure Per Student (on the x-axis) and SAT Total Score (on the y-axis). The third variable, SAT Participation Rate, is introduced through the color of the data points and the separate linear regression lines. 
+
+The plot shows that the proportion of students taking the SAT seems to be a stronger predictor of average SAT scores than expenditure per student. States with lower SAT participation rates tend to have higher average scores, regardless of their spending per student. Conversely, states with high participation rates tend to have lower average scores.
 
 
